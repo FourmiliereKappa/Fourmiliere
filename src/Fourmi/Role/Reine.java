@@ -14,8 +14,8 @@ public class Reine extends Role {
   public Reine() {
 	  
 	 maFourmiliere = new Fourmiliere();
-	 Fourmi maFourmi = new Fourmi(maFourmiliere);
 	 Adulte monAdulte = new Adulte();
+	 Fourmi maFourmi = new Fourmi(maFourmiliere, monAdulte);
 	 monAdulte.setRole(this);
 	 maFourmi.setetatDev(monAdulte);
 	 maFourmiliere.putFourmi(maFourmi);

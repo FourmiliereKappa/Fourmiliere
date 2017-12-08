@@ -3,6 +3,8 @@ package Fourmiliere;
 import java.util.ArrayList;
 
 import Fourmi.Fourmi;
+import Fourmi.EtatDev.Adulte;
+import Fourmi.EtatDev.Oeuf;
 
 public class Fourmiliere {
 	
@@ -36,9 +38,11 @@ public class Fourmiliere {
 	
 	
 	public void nouvelleFourmi() {
-		Fourmi maFourmis = new Fourmi(this);
+		Fourmi maFourmis = new Fourmi(this, new Oeuf());
 		putFourmi(maFourmis);
 	}
+	
+
 	
 	public void putFourmi(Fourmi manouvelleFourmi) {
 		MesFourmis.add(manouvelleFourmi);

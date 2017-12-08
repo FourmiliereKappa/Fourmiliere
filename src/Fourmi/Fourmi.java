@@ -8,9 +8,9 @@ public class Fourmi {
   EtatDev etatDev;
   Fourmiliere lafourmilliere;
   
-  public Fourmi(Fourmiliere maFourmilliere) {
+  public Fourmi(Fourmiliere maFourmilliere,EtatDev monetat) {
 	  lafourmilliere=maFourmilliere;
-	  etatDev = new Oeuf();
+	  etatDev=monetat;
 	  cycle(this);
   }
 
