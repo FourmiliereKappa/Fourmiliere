@@ -8,4 +8,8 @@ public class Adulte extends EtatDev{
   public void cycle(){
 	  System.out.println("ok");
   }
+  
+  public void setRole(Role monRole) {
+	  role =  monRole;
+  }
 }

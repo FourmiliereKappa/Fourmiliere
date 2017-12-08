@@ -20,7 +20,13 @@ public class Fourmiliere {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					appliqueFourmi();
+					
+					int i=0;
+					while(i<20) {
+						appliqueFourmi();
+						i++;
+					}
+
 				}
 			}
 		};
@@ -37,6 +43,7 @@ public class Fourmiliere {
 	public void putFourmi(Fourmi manouvelleFourmi) {
 		MesFourmis.add(manouvelleFourmi);
 	}
+	
 	
 	public void removeFourmi(Fourmi maFourmieffacer) {
 		MesFourmis.remove(maFourmieffacer);

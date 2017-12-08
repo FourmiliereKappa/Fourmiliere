@@ -12,6 +12,7 @@ public class Larve extends EtatDev {
 	  if (vie==dureeviemax) {
 		  Nymphe manymphe = new Nymphe();
 		  laFourmi.setetatDev(manymphe);
+		  manymphe.cycle(laFourmi);
 	  }else {
 		  vie ++;
 	  }
