@@ -6,6 +6,6 @@ public class Adulte extends EtatDev{
   Role role;
 
   public void cycle(){
-
+	  System.out.println("ok");
   }
 }
