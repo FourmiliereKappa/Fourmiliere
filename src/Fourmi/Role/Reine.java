@@ -20,7 +20,7 @@ public class Reine extends Role {
 	 maFourmi.setetatDev(monAdulte);
 	 maFourmiliere.putFourmi(maFourmi);
   }
-  
+  //
   public void cycle(){
 	  
 	  pondreoeuf();
