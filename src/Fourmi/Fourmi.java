@@ -1,21 +1,23 @@
 package Fourmi;
 
-import Fourmi.EtatDev.EtatDev;
-import Fourmi.EtatDev.Oeuf;
+import Fourmi.EtatDev.EtatDev; 
 import Fourmiliere.Fourmiliere;
 
 public class Fourmi {
+	
   EtatDev etatDev;
   Fourmiliere lafourmilliere;
   
   public Fourmi(Fourmiliere maFourmilliere,EtatDev monetat) {
+	  
 	  lafourmilliere=maFourmilliere;
 	  etatDev=monetat;
-	  cycle(this);
+	  
   }
 
+  	
   public void cycle(Fourmi maFourmis){
-    etatDev.cycle(maFourmis);
+    getetatDev().cycle(maFourmis);
   }
   
   public EtatDev getetatDev() {

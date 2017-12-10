@@ -7,7 +7,7 @@ import Fourmiliere.Fourmiliere;
 public class Reine extends Role {
 
   int dureviee=0;
-  int dureeviemax=10*365;
+  int dureeviemax=1051200;
 
   Fourmiliere maFourmiliere;
   
@@ -15,20 +15,22 @@ public class Reine extends Role {
 	  
 	 maFourmiliere = new Fourmiliere();
 	 Adulte monAdulte = new Adulte();
-	 Fourmi maFourmi = new Fourmi(maFourmiliere, monAdulte);
 	 monAdulte.setRole(this);
-	 maFourmi.setetatDev(monAdulte);
+	 Fourmi maFourmi = new Fourmi(maFourmiliere, monAdulte);
 	 maFourmiliere.putFourmi(maFourmi);
+	 
   }
   //
   public void cycle(){
 	  
 	  pondreoeuf();
+	  dureviee+=1;
 
   }
   
   public void pondreoeuf() {
-	  maFourmiliere.nouvelleFourmi();
+	 
+	 maFourmiliere.nouvelleFourmi();
   }
 
 }

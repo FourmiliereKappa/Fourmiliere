@@ -9,12 +9,11 @@ public class Oeuf extends EtatDev {
 
   public void cycle(Fourmi laFourmi){
 	  
-	  System.out.println("tics :" + vie);
 	  if (vie==dureeviemax) {
-		  System.out.println("Larve creation");
+		  
 		  Larve malarve = new Larve();
 		  laFourmi.setetatDev(malarve);
-		  malarve.cycle(laFourmi);
+		  
 	  }else {
 		  vie ++;
 	  }
