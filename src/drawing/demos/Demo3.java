@@ -14,6 +14,7 @@ import drawing.World;
 import Fourmi.Fourmi;
 import Fourmi.EtatDev.EtatDev;
 import Fourmi.Role.Reine;
+import creature.InsectSpawner;
 import monde.Zone;
 import monde.theWorld;
 import shapeGiver.Dessinable;
@@ -28,6 +29,7 @@ public class Demo3 {
 		theWorld.setWorld(jc);
 
 		new Fourmi();
+		new InsectSpawner();
 		jc.open();
 
 		while (true) {

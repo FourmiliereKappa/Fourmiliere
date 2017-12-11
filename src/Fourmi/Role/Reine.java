@@ -24,7 +24,7 @@ public class Reine extends Role implements Cyclable{
 
     if(etatDev.getFourmi().getFourmiliere().getNb() < 500000){
       pond();
-      System.out.println("je pond " + etatDev.getFourmi().getFourmiliere().getNb());
+      //System.out.println("je pond " + etatDev.getFourmi().getFourmiliere().getNb());
     }
     //System.out.println("je joue " + etatDev.getFourmi().getFourmiliere().getNb());
   }

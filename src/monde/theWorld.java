@@ -45,9 +45,9 @@ public class theWorld {
   public static void cycle(){
     for (Cyclable cyclable: cyclables){
       cyclable.cycle();
-      System.out.println(cyclable.toString());
+      //System.out.println(cyclable.toString());
     }
-    System.out.println(cyclables.size());
+    //System.out.println(cyclables.size());
     for (Dessinable dessinable : dessinables){
       dessinable.getSkin().setPosition(new Point(dessinable.getX()+400, dessinable.getY()+300));
     }

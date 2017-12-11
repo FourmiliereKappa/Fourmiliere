@@ -6,33 +6,37 @@ import monde.Zone;
 import monde.theWorld;
 import shapeGiver.Dessineur;
 import shapeGiver.Movable;
+import shapeGiver.SkinType1;
 
 public abstract class Insecte implements Cyclable, Movable {
 
   int poids;
   Zone zone;
+  IMovableDrawable skin;
+
+  public Insecte(Zone zone){
+    this.zone = zone;
+
+  }
 
   @Override
   public IMovableDrawable accept(Dessineur dessineur) {
-    // TODO Auto-generated method stub
-    return null;
+    return dessineur.dessine(this);
   }
 
   @Override
   public IMovableDrawable getSkin() {
-    // TODO Auto-generated method stub
-    return null;
+    return skin;
   }
 
   @Override
   public void cycle() {
-    // TODO Auto-generated method stub
 
   }
 
   @Override
   public void setZone(Zone zone) {
-    // TODO Auto-generated method stub
+    this.zone = zone;
 
   }
 
