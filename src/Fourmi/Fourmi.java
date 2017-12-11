@@ -34,9 +34,6 @@ public class Fourmi implements Cyclable{
   public Fourmi(){
     Zone zoneStart = new Zone(0, 0);
     etatDev = new Adulte(this, zoneStart);
-    ((Adulte)etatDev).setRole(new Reine(zoneStart, etatDev));
-    //theWorld.addQueen(this);
-    theWorld.addCyclable(this);
   }
 
   public Fourmiliere getFourmiliere(){

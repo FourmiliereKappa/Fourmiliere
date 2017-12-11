@@ -15,15 +15,14 @@ public class Reine extends Role implements Cyclable{
     super();
     this.etatDev = etatDev;
     this.zone = zone;
+    createFourmiliere();
+    this.etatDev.getFourmi().getFourmiliere().addFourmi(this.etatDev.getFourmi());
   }
 
   @Override
   public void cycle() {
-    if (etatDev.getFourmi().getFourmiliere() == null){
-      createFourmiliere();
-      //System.out.println("je construit " + etatDev.getFourmi().getFourmiliere().getNb());
-    }
-    else if(etatDev.getFourmi().getFourmiliere().getNb() < 500000){
+
+    if(etatDev.getFourmi().getFourmiliere().getNb() < 500000){
       pond();
       System.out.println("je pond " + etatDev.getFourmi().getFourmiliere().getNb());
     }

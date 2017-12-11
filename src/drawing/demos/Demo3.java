@@ -28,7 +28,6 @@ public class Demo3 {
 		theWorld.setWorld(jc);
 
 		new Fourmi();
-
 		jc.open();
 
 		while (true) {

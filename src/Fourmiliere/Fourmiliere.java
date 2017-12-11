@@ -27,6 +27,8 @@ public class Fourmiliere implements Dessinable, Cyclable{
     skin = accept(dessineur);
     theWorld.addDessinable(this);
     theWorld.addCyclable(this);
+
+    System.out.println("fourmiliere crée");
   }
 
   public Zone getZone(){
