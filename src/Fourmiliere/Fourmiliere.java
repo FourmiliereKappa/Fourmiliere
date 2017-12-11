@@ -1,17 +1,18 @@
 package Fourmiliere;
 
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Fourmi;
-import Fourmi.EtatDev.Adulte;
 import Fourmi.EtatDev.Oeuf;
 
 public class Fourmiliere {
 	
-	ArrayList<Fourmi> MesFourmis;
+	CopyOnWriteArrayList<Fourmi> MesFourmis;
 	
 	public Fourmiliere() {
-		MesFourmis = new ArrayList<Fourmi>();
+		
+		MesFourmis = new CopyOnWriteArrayList<Fourmi>();
 		Thread monthread = new Thread() {
 			 public void run() {
 				
