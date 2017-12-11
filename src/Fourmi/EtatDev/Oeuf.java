@@ -6,18 +6,28 @@ public class Oeuf extends EtatDev {
 	
   int vie = 0 ;
   int dureeviemax = 864; // 3 = nombre de jours * 288 = nombre de tics par jour = nombre de tics totaux
-
-  public void cycle(Fourmi laFourmi){
+  Fourmi refFourmis;
+  
+  public Oeuf(Fourmi maFourmi) {
+	  refFourmis = maFourmi;
+  }
+  
+  
+  public void cycle(){
 	  
-	  System.out.println("tics :" + vie);
+	  
 	  if (vie==dureeviemax) {
-		  System.out.println("Larve creation");
-		  Larve malarve = new Larve();
-		  laFourmi.setetatDev(malarve);
-		  malarve.cycle(laFourmi);
+		  
+		  Larve malarve = new Larve(getrefFourmis());
+		  getrefFourmis().setetatDev(malarve);
+		  
 	  }else {
 		  vie ++;
 	  }
+  }
+  
+  public Fourmi getrefFourmis() {
+	  return refFourmis;
   }
 
 }

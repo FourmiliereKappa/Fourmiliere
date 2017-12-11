@@ -5,17 +5,21 @@ import Fourmi.EtatDev.Oeuf;
 import Fourmiliere.Fourmiliere;
 
 public class Fourmi {
+	
   EtatDev etatDev;
   Fourmiliere lafourmilliere;
   
-  public Fourmi(Fourmiliere maFourmilliere,EtatDev monetat) {
+  public Fourmi(Fourmiliere maFourmilliere) {
+	  
+	  
 	  lafourmilliere=maFourmilliere;
-	  etatDev=monetat;
-	  cycle(this);
+	  etatDev = new Oeuf(this);  
+	  
   }
 
-  public void cycle(Fourmi maFourmis){
-    etatDev.cycle(maFourmis);
+  	
+  public void cycle(){
+    getetatDev().cycle();
   }
   
   public EtatDev getetatDev() {
@@ -25,4 +29,5 @@ public class Fourmi {
   public void setetatDev(EtatDev etat) {
 	  etatDev=etat;
   }
+  
 }
