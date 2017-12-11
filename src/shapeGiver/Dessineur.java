@@ -1,10 +1,8 @@
 package shapeGiver;
 
 import drawing.IMovableDrawable;
-import fourmiliere.Fourmiliere;
-import fourmis.Fourmi;
-import fourmis.role.Ouvriere;
-import fourmis.role.Reine;
+import Fourmiliere.Fourmiliere;
+import Fourmi.Role.Ouvriere;
 
 public interface Dessineur {
 

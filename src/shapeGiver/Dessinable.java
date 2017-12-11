@@ -1,7 +1,6 @@
 package shapeGiver;
 
 import drawing.IMovableDrawable;
-import monde.Zone;
 
 public interface Dessinable {
 

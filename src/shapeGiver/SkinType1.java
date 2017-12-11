@@ -6,9 +6,8 @@ import java.awt.Point;
 
 import drawing.IMovableDrawable;
 import drawing.Oval;
-import fourmiliere.Fourmiliere;
-import fourmis.Fourmi;
-import fourmis.role.Ouvriere;
+import Fourmiliere.Fourmiliere;
+import Fourmi.Role.Ouvriere;
 
 public class SkinType1 implements Dessineur{
 
