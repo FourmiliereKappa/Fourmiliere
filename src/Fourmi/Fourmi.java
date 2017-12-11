@@ -27,7 +27,6 @@ public class Fourmi implements Cyclable{
 
   public Fourmi(Fourmiliere fourmiliere){
     etatDev = new Oeuf(this);
-    theWorld.addCyclable(this);
     this.fourmiliere = fourmiliere;
     fourmiliere.addFourmi(this);
   }
