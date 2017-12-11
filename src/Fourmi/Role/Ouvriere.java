@@ -14,8 +14,8 @@ public class Ouvriere extends Role implements Movable, Cyclable{
 
   IMovableDrawable skin;
 
-  public Ouvriere(Zone zone, EtatDev etatDev) {
-    super(zone, etatDev);
+  public Ouvriere(EtatDev etatDev) {
+    super(etatDev);
     Dessineur dessineur = new SkinType1();
     skin = accept(dessineur);
     theWorld.addDessinable(this);

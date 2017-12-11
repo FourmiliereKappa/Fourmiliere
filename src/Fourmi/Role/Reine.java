@@ -12,7 +12,9 @@ import shapeGiver.Dessineur;
 public class Reine extends Role implements Cyclable{
 
   public Reine(Zone zone, EtatDev etatDev){
-    super(zone, etatDev);
+    super();
+    this.etatDev = etatDev;
+    this.zone = zone;
   }
 
   @Override

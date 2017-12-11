@@ -15,7 +15,7 @@ public class Adulte extends EtatDev{
 
   public Adulte(Fourmi fourmi){
     super(fourmi);
-    role = new Ouvriere(fourmi.getFourmiliere().getZone(), this);
+    role = new Ouvriere(this);
   }
 
   public Adulte(Fourmi fourmi, Zone zone){

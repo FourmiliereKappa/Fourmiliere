@@ -12,9 +12,12 @@ public abstract class Role implements Cyclable{
   protected Zone zone;
   protected EtatDev etatDev;
 
-  public Role(Zone zone, EtatDev etatDev){
-    this.zone = zone;
+  public Role(EtatDev etatDev){
     this.etatDev = etatDev;
+    this.zone = this.etatDev.getFourmi().getFourmiliere().getZone();
+  }
+
+  public Role(){
   }
 
   public Zone getZone() {

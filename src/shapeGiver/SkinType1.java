@@ -8,6 +8,7 @@ import drawing.IMovableDrawable;
 import drawing.Oval;
 import Fourmiliere.Fourmiliere;
 import Fourmi.Role.Ouvriere;
+import Fourmi.Role.Soldat;
 
 public class SkinType1 implements Dessineur{
 
@@ -23,6 +24,11 @@ public class SkinType1 implements Dessineur{
   @Override
   public IMovableDrawable dessine(Fourmiliere fourmiliere) {
     return new Oval(Color.PINK, new Point(0, 0), new Dimension(10, 10));
+  }
+
+  @Override
+  public IMovableDrawable dessine(Soldat soldat) {
+    return new Oval(Color.RED, new Point(0, 0), new Dimension(5, 5));
   }
 
 
