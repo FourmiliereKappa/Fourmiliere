@@ -1,20 +1,21 @@
 package Fourmi.EtatDev;
 
 import Fourmi.Fourmi;
+import creature.Cyclable;
 
-public class Nymphe extends EtatDev {
-	
-  int vie = 0 ;
-  int dureeviemax = 1728; // 6 = nb jours * 288 nb tics jours = tics totaux
+public class Nymphe extends EtatDev implements Cyclable {
 
-  public void cycle(Fourmi laFourmi){
-	  if (vie==dureeviemax) {
-		  System.out.println("Fin cycle Nymphe");
-		  Adulte monadulte = new Adulte();
-		  laFourmi.setetatDev(monadulte);
-	  }else {
-		  vie ++;
-	  }
+  public Nymphe(Fourmi fourmi){
+    super(fourmi);
   }
 
+  public void cycle(){
+    newStade();
+
+
+  }
+
+  public void newStade(){
+    fourmi.setEtatDev(new Adulte(fourmi));
+  }
 }

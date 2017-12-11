@@ -1,35 +1,59 @@
 package Fourmi;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
+
+import Fourmi.EtatDev.Adulte;
 import Fourmi.EtatDev.EtatDev;
 import Fourmi.EtatDev.Oeuf;
 import Fourmiliere.Fourmiliere;
-import suivi.Report;
-import suivi.Trace;
+import Fourmi.Role.Reine;
+import creature.Cyclable;
+import drawing.IMovableDrawable;
+import drawing.Oval;
+import monde.Zone;
+import monde.theWorld;
+import shapeGiver.Dessinable;
+import shapeGiver.Dessineur;
+import shapeGiver.SkinType1;
+import monde.Direction;
 
-public class Fourmi implements Trace {
-	EtatDev etatDev;
-	Fourmiliere lafourmilliere;
+public class Fourmi implements Cyclable{
 
-	public Fourmi(Fourmiliere maFourmilliere) {
-		lafourmilliere = maFourmilliere;
-		etatDev = new Oeuf();
-		cycle(this);
-	}
 
-	public void cycle(Fourmi maFourmis) {
-		etatDev.cycle(maFourmis);
-	}
+  private EtatDev etatDev;
+  private Fourmiliere fourmiliere;
 
-	public EtatDev getetatDev() {
-		return etatDev;
-	}
+  public Fourmi(Fourmiliere fourmiliere){
+    etatDev = new Oeuf(this);
+    theWorld.addCyclable(this);
+    this.fourmiliere = fourmiliere;
+    fourmiliere.addFourmi(this);
+  }
 
-	public void setetatDev(EtatDev etat) {
-		etatDev = etat;
-	}
+  public Fourmi(){
+    Zone zoneStart = new Zone(0, 0);
+    etatDev = new Adulte(this, zoneStart);
+    ((Adulte)etatDev).setRole(new Reine(zoneStart, etatDev));
+    //theWorld.addQueen(this);
+    theWorld.addCyclable(this);
+  }
 
-	@Override
-	public void trace(Report r) {
-		
-	}
+  public Fourmiliere getFourmiliere(){
+    return fourmiliere;
+  }
+
+  public void setFourmiliere(Fourmiliere fourmiliere){
+    this.fourmiliere = fourmiliere;
+  }
+
+  public void setEtatDev(EtatDev etatDev){
+    this.etatDev = etatDev;
+  }
+
+  @Override
+  public void cycle() {
+    etatDev.cycle();
+  }
 }
