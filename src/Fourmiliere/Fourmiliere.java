@@ -4,31 +4,32 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Fourmi;
+import drawing.IMovableDrawable;
+import monde.Terrain;
+import shapeGiver.Dessinable;
+import shapeGiver.Dessineur;
+import shapeGiver.SkinType1;
 
-public class Fourmiliere {
+public class Fourmiliere implements Dessinable{
 	
 	List<Fourmi> MesFourmis;
+	private int x;
+	private int y;
+	private IMovableDrawable skin;
 	
-	public Fourmiliere() {
+	
+	public Fourmiliere(Terrain monTerrain) {
 		
 		MesFourmis = new CopyOnWriteArrayList<Fourmi>();
 		
-		Thread monthread = new Thread() {
-			public void run() {
-				 while(true) {
-			            try {
-			                Thread.sleep(50); // Pause 
-			            } catch (InterruptedException ex) {
-			                Thread.currentThread().interrupt(); 
-			                break; 
-			            }
-			            for(int i=0;i<20;i++)
-			            	appliqueFourmi();
-			        }
-			}
-		};
-		monthread.start();
+		Dessineur dessineur = new SkinType1();
+	    skin = accept(dessineur);
+	    Terrain.addDessinable(this);
 		
+		x=0;
+		y=0;
+		
+		monTerrain.creationFourmiliere(this);
 	}
 
 
@@ -57,4 +58,44 @@ public class Fourmiliere {
 		}
 		
 	}
+
+
+	public int getCoX() {
+		return x;
+	}
+
+
+	public void setCoX(int x) {
+		this.x = x;
+	}
+
+
+	public int getCoY() {
+		return y;
+	}
+
+
+	public void setCoY(int y) {
+		this.y = y;
+	}
+	
+	@Override
+	  public IMovableDrawable accept(Dessineur dessineur) {
+	    return dessineur.dessine(this);
+	  }
+
+	  @Override
+	  public IMovableDrawable getSkin() {
+	    return skin;
+	  }
+
+	  @Override
+	  public int getX() {
+	    return getCoX();
+	  }
+
+	  @Override
+	  public int getY() {
+	    return getCoY();
+	  }
 }

@@ -26,6 +26,10 @@ public class Fourmi {
 	  return etatDev;
   }
   
+  public Fourmiliere getLaFourmiliere() {
+	  return lafourmilliere;
+  }
+  
   public void setetatDev(EtatDev etat) {
 	  etatDev=etat;
   }

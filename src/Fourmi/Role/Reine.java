@@ -4,6 +4,7 @@ package Fourmi.Role;
 import Fourmi.Fourmi;
 import Fourmi.EtatDev.Adulte;
 import Fourmiliere.Fourmiliere;
+import monde.Terrain;
 
 public class Reine extends Role {
 	
@@ -14,9 +15,9 @@ public class Reine extends Role {
 
   Fourmiliere maFourmiliere;
   
-  public Reine() {
-	  
-	 maFourmiliere = new Fourmiliere();
+  public Reine(Terrain monTerrain) {
+	 
+	 maFourmiliere = new Fourmiliere(monTerrain);
 	 
 	 Fourmi maFourmi = new Fourmi(maFourmiliere);
 	 Adulte monAdulte = new Adulte(maFourmi);

@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class World extends JPanel {
+	
 	private static final long serialVersionUID = 1L;
 	private List<IMovableDrawable> drawables = new CopyOnWriteArrayList<IMovableDrawable>();
 

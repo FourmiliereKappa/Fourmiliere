@@ -7,6 +7,7 @@ import Fourmi.Role.Soldat;
 
 public class Adulte extends EtatDev{
   Role role;
+  Fourmi getmaFourmi;
   
   public Adulte(Fourmi laFourmi) {
 	  
@@ -16,10 +17,16 @@ public class Adulte extends EtatDev{
 	  else
 		  setRole(new Soldat(this));
 	  
+	  getmaFourmi = laFourmi;
+	  
   }
   
   public void cycle(){
 	  role.cycle();
+  }
+  
+  public Fourmi getmaFourmi() {
+	  return getmaFourmi;
   }
   
   public void setRole(Role monRole) {
