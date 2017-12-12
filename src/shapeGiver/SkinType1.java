@@ -6,6 +6,7 @@ import java.awt.Point;
 
 import drawing.IMovableDrawable;
 import drawing.Oval;
+import drawing.RectangleDrawable;
 import Fourmiliere.Fourmiliere;
 import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Soldat;
@@ -23,7 +24,7 @@ public class SkinType1 implements Dessineur{
 
   @Override
   public IMovableDrawable dessine(Fourmiliere fourmiliere) {
-    return new Oval(Color.PINK, new Point(0, 0), new Dimension(10, 10));
+    return new RectangleDrawable(Color.PINK, new Point(0, 0), new Dimension(20, 20));
   }
 
   @Override
