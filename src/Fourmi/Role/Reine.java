@@ -34,7 +34,7 @@ public class Reine extends Role {
 	  
 	  if (dureviee%50 == 0) {
 		  
-		  pondreoeuf();
+		  pondreoeuf();//
 		  
 	  }
 	  dureviee+=1;
