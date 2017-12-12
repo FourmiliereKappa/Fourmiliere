@@ -8,6 +8,7 @@ import shapeGiver.Dessinable;
 
 public class Zone {
 	
+	int Pheromone = 0;
 	int x,y;
 	private List<Dessinable> dessinables; 
 	Ennemie monEnnemis=null;

@@ -32,8 +32,11 @@ public class Reine extends Role {
   //
   public void cycle(){
 	  
-	  
-	  pondreoeuf();
+	  if (dureviee%50 == 0) {
+		  
+		  pondreoeuf();
+		  
+	  }
 	  dureviee+=1;
 
   }
