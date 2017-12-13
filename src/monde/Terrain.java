@@ -94,7 +94,7 @@ public class Terrain implements Trace {
 		}
 
 	}
-
+//
 	@Override
 	public void trace(Report r) {
 		System.out.println(lesFourmillieres.size());
