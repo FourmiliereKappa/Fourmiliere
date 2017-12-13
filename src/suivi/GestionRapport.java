@@ -14,6 +14,12 @@ public class GestionRapport {
 		System.out.println(report);
 
 	}
+	
+	public String toString() {
+		Report report = new CountForFourmiliere();
+		rapport.getTerrain().trace(report);
+		return report.toString();
+	}
 
 	
 }

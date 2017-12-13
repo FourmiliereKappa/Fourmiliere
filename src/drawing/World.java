@@ -110,9 +110,9 @@ public class World extends JPanel implements Observer{
     {
         public void actionPerformed(ActionEvent e)
         {
-        	 affiche.getRapport().trace();
-        	 AfficheRapport  vue = new AfficheRapport(monworld());
-        	 //vue.open();
+        	 VueRapport  vue = new VueRapport(affiche);
+        	 vue.open();
+        	 vue.setText( affiche.getRapport().toString());
         }
     }
 

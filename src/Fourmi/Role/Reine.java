@@ -7,8 +7,10 @@ import Fourmi.Fourmi;
 import Fourmi.EtatDev.Adulte;
 import Fourmiliere.Fourmiliere;
 import monde.Terrain;
+import suivi.Report;
+import suivi.Trace;
 
-public class Reine extends Role {
+public class Reine extends Role implements Trace{
 	
   Adulte refAdulte;
 
@@ -50,6 +52,11 @@ public class Reine extends Role {
   public void pondreoeuf() {
 	 
 	 maFourmiliere.nouvelleFourmi();
+  }
+  
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
   }
 
 }

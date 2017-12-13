@@ -19,7 +19,6 @@ public class AfficheRapport {
 	
 
 	public GestionRapport getRapport() {
-		System.out.println("Rapport de la fourmiliere : \n");
 		return rapportGestion;
 	}
 	
@@ -27,4 +26,7 @@ public class AfficheRapport {
 	public Terrain getTerrain() {
 		return leTerrain;
 	}
+
+
+	
 }

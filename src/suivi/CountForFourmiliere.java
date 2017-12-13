@@ -120,7 +120,7 @@ public class CountForFourmiliere implements Report {
 	
 	@Override
 	public String toString() {
-		String CountFourmiliere = "";
+		String CountFourmiliere = "Rapport de la fourmiliere : \n";
 		CountFourmiliere += "Nombres de Fourmilieres : " + nombresfourmilieres + "\n";
 		CountFourmiliere += "Nombres de Fourmis : " + nombresFourmis + "\n";
 		CountFourmiliere += "Nombres de Oeufs : " + nombresOeufs + "\n";
@@ -130,8 +130,8 @@ public class CountForFourmiliere implements Report {
 		CountFourmiliere += "Nombres d'Ouvrieres : " + nombresOuvrieres + "\n";
 		CountFourmiliere += "Nombres de Soldats : " + nombresSoldats + "\n";
 		CountFourmiliere += "Nombre de Reine : " + nombreReine + "\n";
-		CountFourmiliere += "Nombre de Puces : " + nombresPuces + "\n";
-		CountFourmiliere += "Nombre de Scarabes : " + nombresScarabes + "\n";
+		CountFourmiliere += "Nombres de Puces : " + nombresPuces + "\n";
+		CountFourmiliere += "Nombres de Scarabes : " + nombresScarabes + "\n";
 		return CountFourmiliere;
 	}
 
