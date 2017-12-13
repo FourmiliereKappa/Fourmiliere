@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Role.Reine;
 import Fourmiliere.Fourmiliere;
-import creature.Ennemie;
+import creature.EnnemiSpawner;
 import drawing.World;
 import shapeGiver.Dessinable;
 import shapeGiver.Movable;

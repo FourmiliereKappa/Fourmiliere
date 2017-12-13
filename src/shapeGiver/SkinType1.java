@@ -8,6 +8,7 @@ import drawing.IMovableDrawable;
 import drawing.Oval;
 import drawing.RectangleDrawable;
 import Fourmiliere.Fourmiliere;
+import creature.Ennemi;
 import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Soldat;
 
@@ -28,7 +29,7 @@ public class SkinType1 implements Dessineur{
   }
 
   @Override
-  public IMovableDrawable dessine(Soldat soldat) {
+  public IMovableDrawable dessine(Ennemi ennemi) {
     return new Oval(Color.RED, new Point(0, 0), new Dimension(5, 5));
   }
 
