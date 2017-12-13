@@ -10,7 +10,6 @@ import drawing.RectangleDrawable;
 import Fourmiliere.Fourmiliere;
 import creature.Ennemi;
 import Fourmi.Role.Ouvriere;
-import Fourmi.Role.Soldat;
 
 public class SkinType1 implements Dessineur{
 
