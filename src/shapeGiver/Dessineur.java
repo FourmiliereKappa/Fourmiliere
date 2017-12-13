@@ -4,7 +4,6 @@ import drawing.IMovableDrawable;
 import Fourmiliere.Fourmiliere;
 import creature.Ennemi;
 import Fourmi.Role.Ouvriere;
-import Fourmi.Role.Soldat;
 
 public interface Dessineur {
 

@@ -3,10 +3,8 @@ package creature;
 import drawing.IMovableDrawable;
 import monde.Direction;
 import monde.Terrain;
-import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.Movable;
-import shapeGiver.SkinType1;
 
 public abstract class Ennemi implements Cyclable, Movable {
 

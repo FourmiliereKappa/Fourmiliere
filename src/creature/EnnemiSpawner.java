@@ -3,7 +3,7 @@ package creature;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import Fourmi.Fourmi;
+
 import monde.Zone;
 
 public class EnnemiSpawner implements Cyclable{
