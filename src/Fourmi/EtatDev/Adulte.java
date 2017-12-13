@@ -6,11 +6,15 @@ import Fourmi.Role.Role;
 import Fourmi.Role.Soldat;
 
 public class Adulte extends EtatDev{
+	
   Role role;
-  Fourmi getmaFourmi;
+  Fourmi maFourmi;
+  int dureevie=0;
+  int dureeviemax=0;
   
   public Adulte(Fourmi laFourmi) {
-	  getmaFourmi = laFourmi;
+	  
+	  maFourmi = laFourmi;
 	  
 	  double ouvriereousoldat = Math.random(); 
 	  if (ouvriereousoldat < 0.7)
@@ -23,10 +27,11 @@ public class Adulte extends EtatDev{
   
   public void cycle(){
 	  role.cycle();
+	  dureevie++;
   }
   
   public Fourmi getmaFourmi() {
-	  return getmaFourmi;
+	  return maFourmi;
   }
   
   public void setRole(Role monRole) {
