@@ -4,14 +4,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import Depot.Depot;
 import drawing.IMovableDrawable;
 import drawing.Oval;
 import drawing.RectangleDrawable;
 import Fourmiliere.Fourmiliere;
 import creature.Ennemi;
 import Fourmi.Role.Ouvriere;
-import Fourmi.Role.Role;
-import Fourmi.Role.Soldat;
 
 public class SkinType1 implements Dessineur{
 
@@ -36,12 +35,14 @@ public class SkinType1 implements Dessineur{
     return new Oval(Color.RED, new Point(0, 0), new Dimension(bounds, bounds));
   }
 
-  @Override
+
   public IMovableDrawable dessine(Ouvriere ouvriere, int nbFourmis) {
     int bounds= 1*(int)Math.sqrt(1.75*nbFourmis);
     return new Oval(Color.BLACK, new Point(0, 0), new Dimension(bounds, bounds));
   }
 
-
+  public IMovableDrawable dessine(Depot depot) {
+	return new RectangleDrawable(Color.RED, new Point(0, 0), new Dimension(10, 10));
+  }
 
 }

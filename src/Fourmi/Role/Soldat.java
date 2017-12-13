@@ -6,7 +6,7 @@ import suivi.Trace;
 
 public class Soldat extends Role implements Trace{
 
-	 Adulte refAdulte=null;
+	  Adulte refAdulte=null;
 
 	  public Soldat(Adulte monAdulte) {
 
@@ -22,6 +22,10 @@ public class Soldat extends Role implements Trace{
 	  @Override
 	  public void trace(Report r) {
 	  	r.traceForFourmiliere(this);
+	  }
+	  
+	  public void cycle() {
+		  
 	  }
 	  
 }

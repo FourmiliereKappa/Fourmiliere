@@ -3,6 +3,7 @@ package Fourmiliere;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import Depot.Depot;
 import Fourmi.Fourmi;
 import creature.EnnemiSpawner;
 import drawing.IMovableDrawable;
@@ -19,6 +20,7 @@ public class Fourmiliere implements Dessinable,Trace{
 	private int x;
 	private int y;
 	private IMovableDrawable skin;
+	Depot monDepot;
 
 
 	public Fourmiliere(Terrain monTerrain) {
@@ -36,6 +38,8 @@ public class Fourmiliere implements Dessinable,Trace{
 
 		monTerrain.creationFourmiliere(this);
 		monTerrain.add(new EnnemiSpawner(x, y));
+		
+		monDepot=new Depot(x+10, y+10);
 	}
 
 
@@ -100,5 +104,9 @@ public class Fourmiliere implements Dessinable,Trace{
 			fourmi.trace(r);
 			fourmi.getetatDev().trace(r);
 		}
+	}
+	
+	public Depot getDepot() {
+		return monDepot;
 	}
 }

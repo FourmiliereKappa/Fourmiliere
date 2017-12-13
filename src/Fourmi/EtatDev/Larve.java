@@ -11,6 +11,7 @@ public class Larve extends EtatDev implements Trace {
   Fourmi refFourmis;
   double poids=0;
   double multiplicateurpoidentrefourmisetlarve =  3.5 ;
+  int compteuravantmanger = 100;
   
   public Larve(Fourmi maFourmi) {
 	  refFourmis = maFourmi;
@@ -22,9 +23,17 @@ public class Larve extends EtatDev implements Trace {
 	  if (vie==dureeviemax) {
 		  Nymphe manymphe = new Nymphe(getrefFourmis());
 		  getrefFourmis().setetatDev(manymphe);
-		  }else {
+	  } else {
 			  vie ++;
-		  } 
+	  } 
+	  
+	  compteuravantmanger--;
+	  
+	  if (compteuravantmanger==0) {
+		  //getrefFourmis().isDead();
+	  }
+	  
+	  
   }
   
   public Fourmi getrefFourmis() {

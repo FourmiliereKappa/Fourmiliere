@@ -111,8 +111,8 @@ public class World extends JPanel implements Observer{
         public void actionPerformed(ActionEvent e)
         {
         	 affiche.getRapport().trace();
-        	 VueRapport vue = new VueRapport();
-        	 vue.open();
+        	 AfficheRapport  vue = new AfficheRapport(monworld());
+        	 //vue.open();
         }
     }
 
@@ -133,6 +133,8 @@ public class World extends JPanel implements Observer{
 		return monterrain;
 	}
 
-
+	public World monworld() {
+		return this;
+	}
 
 }

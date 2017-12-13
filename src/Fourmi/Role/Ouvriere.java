@@ -15,6 +15,16 @@ public class Ouvriere extends Role implements Movable, Trace{
 	Adulte RefAdulte;
 	int x,y=0;
 	IMovableDrawable skin;
+	int compteuravantaffectation=50;
+	States etat;
+	  
+	  
+	public enum States {
+		SUIVRE_PHEROMONES,
+		NOURRIR,
+		COMBATTRE,
+		RETOUR
+    }
 	
 	public Ouvriere(Adulte monAdulte) {
 		
@@ -25,6 +35,7 @@ public class Ouvriere extends Role implements Movable, Trace{
 		y = getAdulte().getmaFourmi().getLaFourmiliere().getY();
 		
 		Terrain.addDessinable(this);
+		etat=States.NOURRIR;
 	}
 	
     public Adulte getAdulte() {
@@ -43,7 +54,13 @@ public class Ouvriere extends Role implements Movable, Trace{
     }
 
     public void cycle(){
+    	
+    	
     	move();
+    	
+    	if(RefAdulte.getDureevie()+1==RefAdulte.getDureevieMax()) {
+    		Terrain.removeDessinable(this);
+    	}
     }
 
     public void move(){

@@ -1,5 +1,7 @@
 package Fourmi.EtatDev;
 
+import java.util.Random;
+
 import Fourmi.Fourmi;
 import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Role;
@@ -11,8 +13,10 @@ public class Adulte extends EtatDev implements Trace{
 	
   Role role;
   Fourmi maFourmi;
-  int dureevie=0;
-  int dureeviemax=0;
+  int dureevie = 0;
+  int dureeviemax= (int) ((new Random().nextFloat()+1.5) *288 * 365);  // nombre d'annee de vie de la fourmis
+  // * 288 nb cycle jour * 365 nb jour année
+  int compteuravantmanger = 288;
   
   public Adulte(Fourmi laFourmi) {
 	  
@@ -28,8 +32,11 @@ public class Adulte extends EtatDev implements Trace{
   }
   
   public void cycle(){
-	  role.cycle();
+	  if(dureevie==dureeviemax) {
+		  getmaFourmi().isDead();
+	  }
 	  dureevie++;
+	  role.cycle();
   }
   
   public Fourmi getmaFourmi() {
@@ -49,6 +56,20 @@ public class Adulte extends EtatDev implements Trace{
   	r.traceForFourmiliere(this);
   	this.getRole().trace(r);
   }
+  
+  public void setDureevieMax(int dureeviemax) {
+	  this.dureeviemax=dureeviemax;
+  }
+  
+  public int getDureevieMax() {
+	  return dureeviemax;
+  }
+  
+  public int getDureevie() {
+	  return dureevie;
+  }
+  
+  
   
   
 }
