@@ -27,7 +27,7 @@ import suivi.AfficheRapport;
 
 
 public class World extends JPanel implements Observer{
-
+	
 	AfficheRapport affiche;
 	private static final long serialVersionUID = 1L;
 	private List<IMovableDrawable> drawables = new CopyOnWriteArrayList<IMovableDrawable>();
@@ -110,7 +110,9 @@ public class World extends JPanel implements Observer{
     {
         public void actionPerformed(ActionEvent e)
         {
-        	 affiche.getRapport().trace();	 
+        	 affiche.getRapport().trace();
+        	 VueRapport vue = new VueRapport();
+        	 vue.open();
         }
     }
 

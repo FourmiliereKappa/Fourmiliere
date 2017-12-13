@@ -19,7 +19,7 @@ public class AfficheRapport {
 	
 
 	public GestionRapport getRapport() {
-		System.out.println("getRapport");
+		System.out.println("Rapport de la fourmiliere : \n");
 		return rapportGestion;
 	}
 	

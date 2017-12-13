@@ -5,8 +5,10 @@ import monde.Terrain;
 import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.SkinType1;
+import suivi.Report;
+import suivi.Trace;
 
-public class Scarabe extends Ennemi {
+public class Scarabe extends Ennemi implements Trace {
 
   public Scarabe(int x, int y){
     super(x, y);
@@ -25,7 +27,10 @@ public class Scarabe extends Ennemi {
 
 
 
-
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
+  }
 
 
 }

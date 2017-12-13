@@ -9,7 +9,6 @@ public class GestionRapport {
 	}
 
 	public void trace() {
-		System.out.println("Trace gestion");
 		Report report = new CountForFourmiliere();
 		rapport.getTerrain().trace(report);
 		System.out.println(report);

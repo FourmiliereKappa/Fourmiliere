@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Fourmi;
 import monde.Zone;
+import suivi.Report;
 
 public class EnnemiSpawner implements Cyclable{
 
@@ -52,6 +53,12 @@ public class EnnemiSpawner implements Cyclable{
     }
 
   }
+
+public void trace(Report report) {
+	 for(Ennemi ennemi : ennemis){
+	      ennemi.trace(report);
+	    }	
+}
 
 
 }

@@ -5,8 +5,10 @@ import monde.Terrain;
 import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.SkinType1;
+import suivi.Report;
+import suivi.Trace;
 
-public class Puce extends Ennemi {
+public class Puce extends Ennemi implements Trace {
 
   public Puce(int x, int y){
     super(x, y);
@@ -30,6 +32,9 @@ public class Puce extends Ennemi {
   }
 
 
-
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
+  }
 
 }

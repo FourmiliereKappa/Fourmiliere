@@ -9,6 +9,9 @@ import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Reine;
 import Fourmi.Role.Soldat;
 import Fourmiliere.Fourmiliere;
+import creature.Ennemi;
+import creature.Puce;
+import creature.Scarabe;
 import monde.Terrain;
 
 public interface Report {
@@ -32,6 +35,12 @@ public interface Report {
 	void traceForFourmiliere(Ouvriere ouvriere);
 
 	void traceForFourmiliere(Terrain terrain);
+
+	void traceForFourmiliere(Puce puce);
+
+	void traceForFourmiliere(Scarabe scarabe);
+
+	void traceForFourmiliere(Ennemi ennemi);
 	
 
 }

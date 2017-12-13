@@ -9,6 +9,9 @@ import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Reine;
 import Fourmi.Role.Soldat;
 import Fourmiliere.Fourmiliere;
+import creature.Ennemi;
+import creature.Puce;
+import creature.Scarabe;
 import monde.Terrain;
 
 public class CountForFourmiliere implements Report {
@@ -21,6 +24,8 @@ public class CountForFourmiliere implements Report {
 	private Integer nombresSoldats;
 	private Integer nombresfourmilieres;
 	private Integer nombreReine;
+	private Integer nombresPuces;
+	private Integer nombresScarabes;
 	static int NBReine = 1;
 	
 	
@@ -34,6 +39,8 @@ public class CountForFourmiliere implements Report {
 		this.nombresSoldats = new Integer(0);
 		this.nombresfourmilieres = new Integer(0);
 		this.nombreReine = new Integer(0);
+		this.nombresPuces = new Integer(0);
+		this.nombresScarabes = new Integer(0);
 	}
 
 
@@ -60,7 +67,7 @@ public class CountForFourmiliere implements Report {
 	@Override
 	public void traceForFourmiliere(Reine reine) {
 		// TODO Auto-generated method stub
-		this.nombreReine = NBReine;
+		this.nombreReine ++;
 	}
 
 
@@ -99,6 +106,19 @@ public class CountForFourmiliere implements Report {
 	}
 
 	@Override
+	public void traceForFourmiliere(Puce puce) {
+		// TODO Auto-generated method stub
+		this.nombresPuces++;
+	}
+
+	@Override
+	public void traceForFourmiliere(Scarabe scarabe) {
+		// TODO Auto-generated method stub
+		this.nombresScarabes++;
+	}
+	
+	
+	@Override
 	public String toString() {
 		String CountFourmiliere = "";
 		CountFourmiliere += "Nombres de Fourmilieres : " + nombresfourmilieres + "\n";
@@ -110,13 +130,21 @@ public class CountForFourmiliere implements Report {
 		CountFourmiliere += "Nombres d'Ouvrieres : " + nombresOuvrieres + "\n";
 		CountFourmiliere += "Nombres de Soldats : " + nombresSoldats + "\n";
 		CountFourmiliere += "Nombre de Reine : " + nombreReine + "\n";
-
+		CountFourmiliere += "Nombre de Puces : " + nombresPuces + "\n";
+		CountFourmiliere += "Nombre de Scarabes : " + nombresScarabes + "\n";
 		return CountFourmiliere;
 	}
 
 
 	@Override
 	public void traceForFourmiliere(Terrain terrain) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void traceForFourmiliere(Ennemi ennemi) {
 		// TODO Auto-generated method stub
 		
 	}

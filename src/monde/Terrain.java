@@ -137,6 +137,9 @@ public class Terrain extends Observable implements Trace {
 		for(Fourmiliere f: lesFourmillieres) {
 			f.trace(report);
 		}
+		for(EnnemiSpawner e: ennemiSpawners) {
+			e.trace(report);
+		}
 		
 	}
 	
