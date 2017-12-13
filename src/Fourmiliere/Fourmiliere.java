@@ -26,15 +26,14 @@ public class Fourmiliere implements Dessinable{
 	    skin = accept(dessineur);
 	    Terrain.addDessinable(this);
 		
-		x=0;
-		y=0;
+		x=(int) (Math.random() * 0x150);
+		y=(int) (Math.random() * 0x150);
 		
 		monTerrain.creationFourmiliere(this);
 	}
 
 
 	public void nouvelleFourmi() {
-		
 		
 		Fourmi maFourmis = new Fourmi(this);
 		putFourmi(maFourmis);
@@ -60,26 +59,15 @@ public class Fourmiliere implements Dessinable{
 	}
 
 
-	public int getCoX() {
-		return x;
-	}
-
-
 	public void setCoX(int x) {
 		this.x = x;
 	}
-
-
-	public int getCoY() {
-		return y;
-	}
-
 
 	public void setCoY(int y) {
 		this.y = y;
 	}
 	
-	@Override
+	 @Override
 	  public IMovableDrawable accept(Dessineur dessineur) {
 	    return dessineur.dessine(this);
 	  }
@@ -91,11 +79,11 @@ public class Fourmiliere implements Dessinable{
 
 	  @Override
 	  public int getX() {
-	    return getCoX();
+	    return x;
 	  }
 
 	  @Override
 	  public int getY() {
-	    return getCoY();
+	    return y;
 	  }
 }

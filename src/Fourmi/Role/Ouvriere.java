@@ -20,8 +20,9 @@ public class Ouvriere extends Role implements Movable{
 		RefAdulte = monAdulte;
 		Dessineur dessineur = new SkinType1();
 	    skin = accept(dessineur);
-		x = 0; //getAdulte().getmaFourmi().getLaFourmiliere().getCoX();
-		y = 0; //getAdulte().getmaFourmi().getLaFourmiliere().getCoY();
+		x = getAdulte().getmaFourmi().getLaFourmiliere().getX();
+		y = getAdulte().getmaFourmi().getLaFourmiliere().getY();
+		
 		Terrain.addDessinable(this);
 	}
 	

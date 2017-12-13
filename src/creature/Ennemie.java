@@ -1,4 +1,4 @@
-package monde;
+package creature;
 
 public class Ennemie {
 

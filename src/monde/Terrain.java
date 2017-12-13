@@ -8,6 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Role.Reine;
 import Fourmiliere.Fourmiliere;
+import creature.Ennemie;
 import drawing.World;
 import shapeGiver.Dessinable;
 import shapeGiver.Movable;
@@ -25,32 +26,10 @@ public class Terrain {
 		
 		this.lesFourmillieres = new CopyOnWriteArrayList<Fourmiliere>();
 		this.lesEnnemies = new CopyOnWriteArrayList<Ennemie>();
-		
-		
-		Thread monthread = new Thread() {
-			public void run() {
-				 while(true) {
-			            try {
-			                Thread.sleep(50); // Pause 
-			            } catch (InterruptedException ex) {
-			                Thread.currentThread().interrupt(); 
-			                break; 
-			            }
-			            for(int i=0;i<20;i++) {
-			            	for(Fourmiliere f: lesFourmillieres) {
-			        			f.appliqueFourmi();
-			        		}
-			            }
-			            for (Dessinable dessinable : dessinables){
-			                dessinable.getSkin().setPosition(new Point(dessinable.getX()+400, dessinable.getY()+300));
-			            }
-			            leworld.repaint();
-			        }
-			}
-		};
-		monthread.start();
-		
 		Terrain.leworld=leworld;
+		
+		gestionTemps();
+		
 		
 		
 	}
@@ -80,7 +59,7 @@ public class Terrain {
 		
 		
 		lesFourmillieres.add(maFourmilliere);
-		getZone(maFourmilliere.getCoX(),maFourmilliere.getCoY()).setmaFourmilliere(maFourmilliere);
+		getZone(maFourmilliere.getX(),maFourmilliere.getY()).setmaFourmilliere(maFourmilliere);
 		
 	}
 	
@@ -93,24 +72,57 @@ public class Terrain {
 		    switch (direction){
 		    
 		      case TOP:
-		        movable.setZone(movable.getX(), movable.getY()-1);
-		        getZone(movable.getX(), movable.getY()+1).removeDessinable(movable);
+		    	getZone(movable.getX(), movable.getY()).removeDessinable(movable);
+		        movable.setZone(movable.getX(), movable.getY()+1);
+		        getZone(movable.getX(), movable.getY()).addDessinable(movable);
 		        break;
 		      case LEFT:
+		    	getZone(movable.getX(), movable.getY()).removeDessinable(movable);
 		        movable.setZone(movable.getX()-1, movable.getY());
-		        getZone(movable.getX()+1, movable.getY()).removeDessinable(movable);
+		        getZone(movable.getX(), movable.getY()).addDessinable(movable);
 		        break;
 		      case DOWN:
-		        movable.setZone(movable.getX(), movable.getY()+1);
-		        getZone(movable.getX(), movable.getY()-1).removeDessinable(movable);
+		        getZone(movable.getX(), movable.getY()).removeDessinable(movable);
+		        movable.setZone(movable.getX(), movable.getY()-1);
+		        getZone(movable.getX(), movable.getY()).addDessinable(movable);
 		        break;
 		      case RIGHT:
+		    	getZone(movable.getX(), movable.getY()).removeDessinable(movable);
 		        movable.setZone(movable.getX()+1, movable.getY());
-		        getZone(movable.getX()-1, movable.getY()).removeDessinable(movable);
+		        getZone(movable.getX(), movable.getY()).addDessinable(movable);
 		        break;
 		        
 		    }
 
+	 }
+	 
+	 
+	 public void gestionTemps() {
+		 Thread monthread = new Thread() {
+				public void run() {
+					 while(true) {
+				            try {
+				                Thread.sleep(50); // Pause 
+				            } catch (InterruptedException ex) {
+				                Thread.currentThread().interrupt(); 
+				                break; 
+				            }
+				            for(int i=0;i<20;i++) {
+				            	
+				            	for(Fourmiliere f: lesFourmillieres) {
+				        			f.appliqueFourmi();
+				        		}
+				            	
+				            }
+				            
+				            for (Dessinable dessinable : dessinables){
+				                dessinable.getSkin().setPosition(new Point(dessinable.getX()+400, dessinable.getY()+300));
+				            }
+				            leworld.repaint();
+				        }
+				}
+			};
+			monthread.start();
 	 }
 }
 

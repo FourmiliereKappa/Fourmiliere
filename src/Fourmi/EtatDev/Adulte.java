@@ -10,6 +10,7 @@ public class Adulte extends EtatDev{
   Fourmi getmaFourmi;
   
   public Adulte(Fourmi laFourmi) {
+	  getmaFourmi = laFourmi;
 	  
 	  double ouvriereousoldat = Math.random(); 
 	  if (ouvriereousoldat < 0.7)
@@ -17,7 +18,6 @@ public class Adulte extends EtatDev{
 	  else
 		  setRole(new Soldat(this));
 	  
-	  getmaFourmi = laFourmi;
 	  
   }
   

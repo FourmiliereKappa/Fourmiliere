@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmiliere.Fourmiliere;
+import creature.Ennemie;
 import shapeGiver.Dessinable;
 
 public class Zone {
@@ -43,6 +44,11 @@ public class Zone {
 		dessinables.remove(monDessinable);
 	}
 	
+	public void addDessinable(Dessinable monDessinable) {
+		Pheromone+=25;
+		dessinables.add(monDessinable);
+	}
+	
 	public void setEnnemis(Ennemie monEnnemie) {
 		monEnnemis=monEnnemie;
 	}
@@ -51,8 +57,17 @@ public class Zone {
 		
 		System.out.println("Fourmiliere ajoutée aux cooordonnées :" + this.x + "," + this.y);
 		this.maFourmilliere=maFourmilliere;
-		System.out.println(maFourmilliere.getCoX() + " , " + maFourmilliere.getCoY());
+		System.out.println(maFourmilliere.getX() + " , " + maFourmilliere.getY());
 		
+	}
+	
+	public int getPheromone() {
+		return Pheromone;
+	}
+	
+	public void retirerPheromone() {
+		System.out.println(Pheromone);
+		Pheromone -= 1;
 	}
 	
 	
