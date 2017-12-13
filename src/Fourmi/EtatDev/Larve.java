@@ -1,8 +1,10 @@
 package Fourmi.EtatDev;
 
 import Fourmi.Fourmi;
+import suivi.Report;
+import suivi.Trace;
 
-public class Larve extends EtatDev {
+public class Larve extends EtatDev implements Trace {
 	
   int vie = 0 ;
   int dureeviemax=2880; //10 = nombre de jours * 288 = nombre de tics par jour = nombre de tics totaux
@@ -32,5 +34,11 @@ public class Larve extends EtatDev {
   public double getPoids() {
 	  return poids;
   }
+  
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
+  }
+  
   
 }

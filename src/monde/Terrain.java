@@ -14,8 +14,9 @@ import drawing.World;
 import shapeGiver.Dessinable;
 import shapeGiver.Movable;
 import suivi.Report;
+import suivi.Trace;
 
-public class Terrain extends Observable {
+public class Terrain extends Observable implements Trace {
 
 	List<Fourmiliere> lesFourmillieres;
 	List<EnnemiSpawner> ennemiSpawners;
@@ -130,11 +131,11 @@ public class Terrain extends Observable {
 			monthread.start();
 			
 	 }
-
+	 @Override
 	public void trace(Report report) {
 		report.traceForFourmiliere(this);
 		for(Fourmiliere f: lesFourmillieres) {
-			report.traceForFourmiliere(f);
+			f.trace(report);
 		}
 		
 	}

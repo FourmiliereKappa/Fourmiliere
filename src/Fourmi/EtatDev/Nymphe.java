@@ -1,8 +1,10 @@
 package Fourmi.EtatDev;
 
 import Fourmi.Fourmi;
+import suivi.Report;
+import suivi.Trace;
 
-public class Nymphe extends EtatDev {
+public class Nymphe extends EtatDev implements Trace {
 	
   int vie = 0 ;
   int dureeviemax = 1728; // 6 = nb jours * 288 nb tics jours = tics totaux
@@ -26,4 +28,10 @@ public class Nymphe extends EtatDev {
 	  return refFourmis;
   }
 
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
+  }
+  
+  
 }

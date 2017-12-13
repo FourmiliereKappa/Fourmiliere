@@ -98,6 +98,7 @@ public class Fourmiliere implements Dessinable,Trace{
 		r.traceForFourmiliere(this);
 		for (Fourmi fourmi : MesFourmis) {
 			fourmi.trace(r);
+			fourmi.getetatDev().trace(r);
 		}
 	}
 }

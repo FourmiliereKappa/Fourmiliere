@@ -1,8 +1,10 @@
 package Fourmi.Role;
 
 import Fourmi.EtatDev.Adulte;
+import suivi.Report;
+import suivi.Trace;
 
-public class Soldat extends Role {
+public class Soldat extends Role implements Trace{
 
 	 Adulte refAdulte=null;
 
@@ -17,4 +19,9 @@ public class Soldat extends Role {
 		  return refAdulte;
 	  }
 
+	  @Override
+	  public void trace(Report r) {
+	  	r.traceForFourmiliere(this);
+	  }
+	  
 }

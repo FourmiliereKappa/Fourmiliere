@@ -53,7 +53,6 @@ public class CountForFourmiliere implements Report {
 
 	@Override
 	public void traceForFourmiliere(Fourmi fourmi) {
-		System.out.println("fourmi++");
 		this.nombresFourmis++;
 	}
 

@@ -55,6 +55,8 @@ public class Fourmi implements Trace{
 @Override
 public void trace(Report r) {
 	r.traceForFourmiliere(this);
+	
+	
 }
   
   public double getPoidFourmis() {

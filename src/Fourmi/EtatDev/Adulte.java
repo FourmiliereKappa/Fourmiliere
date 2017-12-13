@@ -4,8 +4,10 @@ import Fourmi.Fourmi;
 import Fourmi.Role.Ouvriere;
 import Fourmi.Role.Role;
 import Fourmi.Role.Soldat;
+import suivi.Report;
+import suivi.Trace;
 
-public class Adulte extends EtatDev{
+public class Adulte extends EtatDev implements Trace{
 	
   Role role;
   Fourmi maFourmi;
@@ -37,4 +39,16 @@ public class Adulte extends EtatDev{
   public void setRole(Role monRole) {
 	  role =  monRole;
   }
+  
+  public Role getRole() {
+	  return role;
+  }
+  
+  @Override
+  public void trace(Report r) {
+  	r.traceForFourmiliere(this);
+  	this.getRole().trace(r);
+  }
+  
+  
 }

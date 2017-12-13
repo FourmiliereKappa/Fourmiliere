@@ -7,8 +7,10 @@ import monde.Terrain;
 import shapeGiver.Dessineur;
 import shapeGiver.Movable;
 import shapeGiver.SkinType1;
+import suivi.Report;
+import suivi.Trace;
 
-public class Ouvriere extends Role implements Movable{
+public class Ouvriere extends Role implements Movable, Trace{
 	
 	Adulte RefAdulte;
 	int x,y=0;
@@ -83,5 +85,10 @@ public class Ouvriere extends Role implements Movable{
 		return y;
 	}
 
-
+	  @Override
+	  public void trace(Report r) {
+	  	r.traceForFourmiliere(this);
+	  }
+	  
+	
 }
