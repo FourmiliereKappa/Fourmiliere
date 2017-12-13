@@ -8,7 +8,6 @@ public class Soldat extends Role {
 
 	  public Soldat(Adulte monAdulte) {
 
-		  System.out.println("Je suis un soldat");
 		  refAdulte=monAdulte;
 
 	  }

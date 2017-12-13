@@ -3,8 +3,10 @@ package Fourmi;
 import Fourmi.EtatDev.EtatDev;
 import Fourmi.EtatDev.Oeuf;
 import Fourmiliere.Fourmiliere;
+import suivi.Report;
+import suivi.Trace;
 
-public class Fourmi {
+public class Fourmi implements Trace{
 	
   EtatDev etatDev;
   Fourmiliere lafourmilliere;
@@ -20,6 +22,7 @@ public class Fourmi {
   	
   public void cycle(){
     getetatDev().cycle();
+    
   }
   
   public EtatDev getetatDev() {
@@ -33,5 +36,11 @@ public class Fourmi {
   public void setetatDev(EtatDev etat) {
 	  etatDev=etat;
   }
+
+
+@Override
+public void trace(Report r) {
+	r.traceForFourmiliere(this);
+}
   
 }

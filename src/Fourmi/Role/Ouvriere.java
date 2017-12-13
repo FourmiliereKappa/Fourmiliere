@@ -16,7 +16,6 @@ public class Ouvriere extends Role implements Movable{
 	
 	public Ouvriere(Adulte monAdulte) {
 		
-		System.out.println("Je suis une ouvriere");
 		RefAdulte = monAdulte;
 		Dessineur dessineur = new SkinType1();
 	    skin = accept(dessineur);

@@ -17,17 +17,24 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import monde.Terrain;
+import suivi.AfficheRapport;
+
 
 public class World extends JPanel {
 
+	AfficheRapport affiche;
 	private static final long serialVersionUID = 1L;
 	private List<IMovableDrawable> drawables = new CopyOnWriteArrayList<IMovableDrawable>();
+	Terrain monterrain = new Terrain(this);
 
 	String name = "";
 
 	public World(String name) {
 		this.name = name;
+		affiche = new AfficheRapport(this);
 	}
+	
 	public List<IMovableDrawable> contents() {
 		return drawables;
 	}
@@ -89,11 +96,11 @@ public class World extends JPanel {
         return l;
     }
 
-    static class Rapport implements ActionListener
+    public class Rapport implements ActionListener
     {
         public void actionPerformed(ActionEvent e)
         {
-            System.out.println("Je Suis La Pour Florian");
+        	 affiche.getRapport().trace();	 
         }
     }
 

@@ -9,8 +9,10 @@ import monde.Terrain;
 import shapeGiver.Dessinable;
 import shapeGiver.Dessineur;
 import shapeGiver.SkinType1;
+import suivi.Report;
+import suivi.Trace;
 
-public class Fourmiliere implements Dessinable{
+public class Fourmiliere implements Dessinable,Trace{
 	
 	List<Fourmi> MesFourmis;
 	private int x;
@@ -86,4 +88,12 @@ public class Fourmiliere implements Dessinable{
 	  public int getY() {
 	    return y;
 	  }
+
+	@Override
+	public void trace(Report r) {
+		r.traceForFourmiliere(this);
+		for (Fourmi fourmi : MesFourmis) {
+			fourmi.trace(r);
+		}
+	}
 }
