@@ -16,7 +16,7 @@ public class Adulte extends EtatDev implements Trace{
   int dureevie = 0;
   int dureeviemax= (int) ((new Random().nextFloat()+1.5) *288 * 365);  // nombre d'annee de vie de la fourmis
   // * 288 nb cycle jour * 365 nb jour année
-  int compteuravantmanger = 288;
+  int compteuravantmanger = 288; // on nourris la fourmis une fois par jour
   
   public Adulte(Fourmi laFourmi) {
 	  
@@ -32,10 +32,24 @@ public class Adulte extends EtatDev implements Trace{
   }
   
   public void cycle(){
+	  
 	  if(dureevie==dureeviemax) {
 		  getmaFourmi().isDead();
 	  }
 	  dureevie++;
+	  compteuravantmanger--;
+	  
+	  if(compteuravantmanger==0) {
+		  
+		  boolean resultsinourris = getmaFourmi().getLaFourmiliere().nourrir(getmaFourmi().getPoidFourmis());
+		  if(resultsinourris==true) {
+			  compteuravantmanger=288;
+		  }
+		  else {
+			  getmaFourmi().isDead();
+			  getRole().nonnourris();
+		  }
+	  }
 	  role.cycle();
   }
   

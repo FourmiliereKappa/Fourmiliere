@@ -29,8 +29,12 @@ public class Larve extends EtatDev implements Trace {
 	  
 	  compteuravantmanger--;
 	  
-	  if (compteuravantmanger==0) {
-		  //getrefFourmis().isDead();
+	  boolean resultsinourris = getrefFourmis().getLaFourmiliere().nourrir(getrefFourmis().getPoidFourmis());
+	  if(resultsinourris==true) {
+		  compteuravantmanger=288;
+	  }
+	  else {
+		  getrefFourmis().isDead();
 	  }
 	  
 	  

@@ -102,10 +102,14 @@ public class Ouvriere extends Role implements Movable, Trace{
 		return y;
 	}
 
-	  @Override
-	  public void trace(Report r) {
-	  	r.traceForFourmiliere(this);
-	  }
+	@Override
+	public void trace(Report r) {
+	  r.traceForFourmiliere(this);
+	}
+	
+	public void nonnourris() {
+		Terrain.removeDessinable(this);
+	}
 	  
 	
 }

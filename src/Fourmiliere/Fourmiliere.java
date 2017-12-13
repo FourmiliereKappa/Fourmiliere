@@ -21,6 +21,7 @@ public class Fourmiliere implements Dessinable,Trace{
 	private int y;
 	private IMovableDrawable skin;
 	Depot monDepot;
+	double stocknourriture = 1000000;
 
 
 	public Fourmiliere(Terrain monTerrain) {
@@ -108,5 +109,22 @@ public class Fourmiliere implements Dessinable,Trace{
 	
 	public Depot getDepot() {
 		return monDepot;
+	}
+	
+	public double getstocknourriture() {
+		return stocknourriture;
+	}
+	
+	public boolean nourrir(double d) {
+		
+		if(stocknourriture-d>0) {
+			stocknourriture-=d;	
+			System.out.println(stocknourriture);
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 }

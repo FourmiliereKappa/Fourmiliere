@@ -11,6 +11,10 @@ public abstract class Role {
   public void trace(Report r) {
 		// TODO Auto-generated method stub
 		
-	}
+  }
+  
+  public void nonnourris() {
+	  
+  }
 
 }
