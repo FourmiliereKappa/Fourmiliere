@@ -1,5 +1,7 @@
 package suivi;
 
+import Depot.Cadavre;
+import Depot.Depot;
 import Fourmi.Fourmi;
 import Fourmi.EtatDev.Adulte;
 import Fourmi.EtatDev.Larve;
@@ -41,6 +43,10 @@ public interface Report {
 	void traceForFourmiliere(Scarabe scarabe);
 
 	void traceForFourmiliere(Ennemi ennemi);
+
+	void traceForFourmiliere(Depot depot);
+
+	void traceForFourmiliere(Cadavre cadavre);
 	
 
 }

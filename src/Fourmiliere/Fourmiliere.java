@@ -105,6 +105,7 @@ public class Fourmiliere implements Dessinable,Trace{
 			fourmi.trace(r);
 			fourmi.getetatDev().trace(r);
 		}
+		monDepot.trace(r);
 	}
 	
 	public Depot getDepot() {

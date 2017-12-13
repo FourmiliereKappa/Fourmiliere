@@ -1,5 +1,7 @@
 package suivi;
 
+import Depot.Cadavre;
+import Depot.Depot;
 import Fourmi.Fourmi;
 import Fourmi.EtatDev.Adulte;
 import Fourmi.EtatDev.Larve;
@@ -26,6 +28,7 @@ public class CountForFourmiliere implements Report {
 	private Integer nombreReine;
 	private Integer nombresPuces;
 	private Integer nombresScarabes;
+	private Integer nombresCadavres;
 	static int NBReine = 1;
 	
 	
@@ -41,6 +44,7 @@ public class CountForFourmiliere implements Report {
 		this.nombreReine = new Integer(0);
 		this.nombresPuces = new Integer(0);
 		this.nombresScarabes = new Integer(0);
+		this.nombresCadavres = new Integer(0);
 	}
 
 
@@ -132,6 +136,7 @@ public class CountForFourmiliere implements Report {
 		CountFourmiliere += "Nombre de Reine : " + nombreReine + "\n";
 		CountFourmiliere += "Nombres de Puces : " + nombresPuces + "\n";
 		CountFourmiliere += "Nombres de Scarabes : " + nombresScarabes + "\n";
+		CountFourmiliere += "Nombres de Cadavres : " + nombresCadavres + "\n";
 		return CountFourmiliere;
 	}
 
@@ -147,6 +152,18 @@ public class CountForFourmiliere implements Report {
 	public void traceForFourmiliere(Ennemi ennemi) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public void traceForFourmiliere(Depot depot) {
+				
+	}
+
+
+	@Override
+	public void traceForFourmiliere(Cadavre cadavre) {
+		this.nombresCadavres++;		
 	}
 	
 
