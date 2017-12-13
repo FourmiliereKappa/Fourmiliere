@@ -2,6 +2,8 @@ package drawing;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -10,10 +12,14 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+
 public class World extends JPanel {
-	
+
 	private static final long serialVersionUID = 1L;
 	private List<IMovableDrawable> drawables = new CopyOnWriteArrayList<IMovableDrawable>();
 
@@ -33,10 +39,24 @@ public class World extends JPanel {
 				System.exit(0);
 			}
 		};
+
+    JMenuBar menubar = new JMenuBar();
+    frame.setJMenuBar(menubar);
+
+    JMenu file = new JMenu("File");
+    menubar.add(file);
+
+    JMenuItem rapport = new JMenuItem("Rapport");
+    rapport.addActionListener(new Rapport());
+    file.add(rapport);
+
 		frame.addWindowListener(wa);
 		frame.getContentPane().add(this);
 		frame.pack();
 		frame.setVisible(true);
+
+
+
 	}
 
      public void add(IMovableDrawable d) {
@@ -68,6 +88,15 @@ public class World extends JPanel {
         }
         return l;
     }
+
+    static class Rapport implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            System.out.println("Je Suis La Pour Florian");
+        }
+    }
+
 
 
 }

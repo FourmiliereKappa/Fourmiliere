@@ -3,6 +3,9 @@ package drawing.demos;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import drawing.World;
 import monde.Terrain;
 
@@ -13,7 +16,6 @@ public class Demo3 {
 		World jc = new World("ok");
 		jc.setBackground(Color.WHITE);
 		jc.setPreferredSize(new Dimension(800, 600));
-		
 
 		jc.open();
 
@@ -21,4 +23,7 @@ public class Demo3 {
 		monTerrain.creaReine();
 	}
 
+
 }
+
+
