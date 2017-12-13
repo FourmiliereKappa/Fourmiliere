@@ -36,7 +36,7 @@ public class EnnemiSpawner implements Cyclable{
       int randY = (int) (Math.random() * 10000) % 400 -200;
 
       ennemis.add(spawnPuce(randX+x, randY+y));
-      System.out.println("puce");
+  
     }
 
     if (randSpawnEnnemi == 999){
@@ -45,7 +45,7 @@ public class EnnemiSpawner implements Cyclable{
 
       ennemis.add(spawnScarabe(randX+x, randY+y));
 
-      System.out.println("scarab");
+      
     }
 
     for(Ennemi ennemi : ennemis){

@@ -132,7 +132,7 @@ public class Terrain extends Observable {
 	 }
 
 	public void trace(Report report) {
-		
+		report.traceForFourmiliere(this);
 		for(Fourmiliere f: lesFourmillieres) {
 			report.traceForFourmiliere(f);
 		}
