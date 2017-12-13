@@ -23,15 +23,29 @@ public class EnnemiSpawner implements Cyclable{
     return new Puce(x, y);
   }
 
+  public Scarabe spawnScarabe(int x, int y){
+    return new Scarabe(x, y);
+  }
+
   @Override
   public void cycle() {
-    int randSpawnEnnemi = (int) (Math.random() * 10000) % 100;
+    int randSpawnEnnemi = (int) (Math.random() * 100000) % 1000;
     //System.out.println("rand : "+randSpawnPuce);
-    if (randSpawnEnnemi > 98){
+    if (randSpawnEnnemi > 995 && randSpawnEnnemi <999){
       int randX = (int) (Math.random() * 10000) % 400 -200;
       int randY = (int) (Math.random() * 10000) % 400 -200;
 
       ennemis.add(spawnPuce(randX+x, randY+y));
+      System.out.println("puce");
+    }
+
+    if (randSpawnEnnemi == 999){
+      int randX = (int) (Math.random() * 10000) % 400 -200;
+      int randY = (int) (Math.random() * 10000) % 400 -200;
+
+      ennemis.add(spawnScarabe(randX+x, randY+y));
+
+      System.out.println("scarab");
     }
 
     for(Ennemi ennemi : ennemis){

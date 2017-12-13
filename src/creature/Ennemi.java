@@ -50,6 +50,11 @@ public abstract class Ennemi implements Cyclable, Movable {
     return y;
   }
 
+  public double getPoids() {
+    return poids;
+  }
+
+
   public void move(){
 
     int direction = (int) (Math.random() * 0x4);

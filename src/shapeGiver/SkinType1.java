@@ -30,8 +30,11 @@ public class SkinType1 implements Dessineur{
 
   @Override
   public IMovableDrawable dessine(Ennemi ennemi) {
-    return new Oval(Color.RED, new Point(0, 0), new Dimension(5, 5));
+    int bounds= 5*(int)Math.ceil((Math.sqrt(ennemi.getPoids())/2));
+
+    return new Oval(Color.RED, new Point(0, 0), new Dimension(bounds, bounds));
   }
+
 
 
 

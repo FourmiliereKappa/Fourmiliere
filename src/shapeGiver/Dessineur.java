@@ -10,6 +10,5 @@ public interface Dessineur {
 
   public IMovableDrawable dessine(Ouvriere ouvriere);
   public IMovableDrawable dessine(Fourmiliere fourmiliere);
-  public IMovableDrawable dessine(Ennemi insecte);
-
+  public IMovableDrawable dessine(Ennemi ennemi);
 }
