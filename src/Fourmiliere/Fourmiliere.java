@@ -119,7 +119,6 @@ public class Fourmiliere implements Dessinable,Trace{
 		
 		if(stocknourriture-d>0) {
 			stocknourriture-=d;	
-			System.out.println(stocknourriture);
 			return true;
 		}
 		else {
