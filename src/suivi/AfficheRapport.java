@@ -11,11 +11,9 @@ public class AfficheRapport {
 	
 	
 	public AfficheRapport(World monworld){
-		
-		leMonde=monworld;
-		System.out.println("constructeur affiche");
+	
 		rapportGestion= new GestionRapport(this);
-		leTerrain = new Terrain(leMonde);
+		leTerrain = monworld.getTerrain();
 
 	}
 	

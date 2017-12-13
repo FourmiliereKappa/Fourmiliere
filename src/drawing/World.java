@@ -1,5 +1,7 @@
 package drawing;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -9,6 +11,8 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JFrame;
@@ -18,21 +22,27 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import monde.Terrain;
+import shapeGiver.Dessinable;
 import suivi.AfficheRapport;
 
 
-public class World extends JPanel {
+public class World extends JPanel implements Observer{
 
 	AfficheRapport affiche;
 	private static final long serialVersionUID = 1L;
 	private List<IMovableDrawable> drawables = new CopyOnWriteArrayList<IMovableDrawable>();
-	Terrain monterrain = new Terrain(this);
+	Terrain monterrain;
 
 	String name = "";
 
-	public World(String name) {
+	public World(String name,Terrain monterrain) {
 		this.name = name;
+		this.monterrain = monterrain;
 		affiche = new AfficheRapport(this);
+		
+		this.setBackground(Color.WHITE);
+		this.setPreferredSize(new Dimension(800, 600));
+		open();
 	}
 	
 	public List<IMovableDrawable> contents() {
@@ -40,12 +50,13 @@ public class World extends JPanel {
 	}
 
 	public void open() {
-		JFrame frame = new JFrame(name);
-		WindowAdapter wa = new WindowAdapter() {
-			public void windowClosing(WindowEvent e) {
-				System.exit(0);
-			}
-		};
+		
+	JFrame frame = new JFrame(name);
+	WindowAdapter wa = new WindowAdapter() {
+	  public void windowClosing(WindowEvent e) {
+		System.exit(0);
+	  }
+	};
 
     JMenuBar menubar = new JMenuBar();
     frame.setJMenuBar(menubar);
@@ -57,11 +68,10 @@ public class World extends JPanel {
     rapport.addActionListener(new Rapport());
     file.add(rapport);
 
-		frame.addWindowListener(wa);
-		frame.getContentPane().add(this);
-		frame.pack();
-		frame.setVisible(true);
-
+	frame.addWindowListener(wa);
+	frame.getContentPane().add(this);
+	frame.pack();
+	frame.setVisible(true);
 
 
 	}
@@ -103,6 +113,23 @@ public class World extends JPanel {
         	 affiche.getRapport().trace();	 
         }
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		
+		this.clear();
+		
+		for (Dessinable d : monterrain.getDessinable()) {
+			this.add(d.getSkin());
+		}
+		
+		this.repaint();
+		
+	}
+	
+	public Terrain getTerrain() {
+		return monterrain;
+	}
 
 
 

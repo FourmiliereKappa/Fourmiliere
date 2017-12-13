@@ -13,7 +13,6 @@ public class Larve extends EtatDev {
   public Larve(Fourmi maFourmi) {
 	  refFourmis = maFourmi;
 	  poids = getrefFourmis().getPoidFourmis() * multiplicateurpoidentrefourmisetlarve;
-	  System.out.println(getPoids());
   }
 
   public void cycle(){

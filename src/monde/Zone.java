@@ -1,6 +1,7 @@
 package monde;
 
 import java.util.List;
+import java.util.Observable;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmiliere.Fourmiliere;

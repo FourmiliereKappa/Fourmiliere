@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Observable;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import Fourmi.Role.Reine;
@@ -12,22 +13,22 @@ import creature.EnnemiSpawner;
 import drawing.World;
 import shapeGiver.Dessinable;
 import shapeGiver.Movable;
-import Parametre.Parametre;
+import suivi.Report;
 
-public class Terrain {
+public class Terrain extends Observable {
 
 	List<Fourmiliere> lesFourmillieres;
 	List<EnnemiSpawner> ennemiSpawners;
 	static private Hashtable<Integer, Hashtable<Integer, Zone>> zones= new Hashtable<Integer, Hashtable<Integer, Zone>>();
 	static private List<Dessinable> dessinables = new ArrayList<Dessinable>();
-	static World leworld;
 
 
-	public Terrain(World leworld) {
+	public Terrain() {
 
 		this.lesFourmillieres = new CopyOnWriteArrayList<Fourmiliere>();
 		this.ennemiSpawners = new CopyOnWriteArrayList<EnnemiSpawner>();
-		Terrain.leworld=leworld;
+		World vue = new World("Monde des fourmis",this);
+		this.addObserver(vue);
 
 		gestionTemps();
 
@@ -36,12 +37,10 @@ public class Terrain {
 	}
 
 	 public static void addDessinable(Dessinable dessinable){
-		 	leworld.add(dessinable.getSkin());
 		    dessinables.add(dessinable);
 	 }
 
 	 public static void removeDessinable(Dessinable dessinable){
-		 	leworld.remove(dessinable.getSkin());
 		    dessinables.remove(dessinable);
 	 }
 
@@ -102,7 +101,7 @@ public class Terrain {
 				public void run() {
 					 while(true) {
 				            try {
-				                Thread.sleep(1000/Parametre.FPS); // Pause
+				                Thread.sleep(50); // Pause
 				            } catch (InterruptedException ex) {
 				                Thread.currentThread().interrupt();
 				                break;
@@ -113,20 +112,40 @@ public class Terrain {
 				        			f.appliqueFourmi();
 				            	}
 
-	                    for(EnnemiSpawner ennemiSpawner : ennemiSpawners){
-	                        ennemiSpawner.cycle();
-	                    }
-				            }
+				            	for(EnnemiSpawner ennemiSpawner : ennemiSpawners){
+				            		ennemiSpawner.cycle();
+				            	}
+				            	
+					            for (Dessinable dessinable : dessinables){
+					                dessinable.getSkin().setPosition(new Point(dessinable.getX()+400, dessinable.getY()+300));
+					            }
+					            
+					            setChanged();
 
-
-				            for (Dessinable dessinable : dessinables){
-				                dessinable.getSkin().setPosition(new Point(dessinable.getX()+400, dessinable.getY()+300));
+					            notifyObservers();
 				            }
-				            leworld.repaint();
 				        }
 				}
 			};
 			monthread.start();
+			
 	 }
+
+	public void trace(Report report) {
+		
+		for(Fourmiliere f: lesFourmillieres) {
+			report.traceForFourmiliere(f);
+		}
+		
+	}
+	
+	public ArrayList<Dessinable> getDessinable(){
+		return (ArrayList<Dessinable>) dessinables;
+	}
+	
+	public Terrain leTerrain() {
+		return this;
+	}
+	
 }
 
