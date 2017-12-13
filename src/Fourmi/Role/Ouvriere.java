@@ -1,5 +1,7 @@
 package Fourmi.Role;
 
+import java.util.Random;
+
 import Fourmi.EtatDev.Adulte;
 import drawing.IMovableDrawable;
 import monde.Direction;
@@ -33,8 +35,7 @@ public class Ouvriere extends Role implements Movable, Trace{
 	    skin = accept(dessineur);
 		x = getAdulte().getmaFourmi().getLaFourmiliere().getX();
 		y = getAdulte().getmaFourmi().getLaFourmiliere().getY();
-		
-		Terrain.addDessinable(this);
+
 		etat=States.NOURRIR;
 	}
 	
@@ -55,11 +56,26 @@ public class Ouvriere extends Role implements Movable, Trace{
 
     public void cycle(){
     	
+    	if(etat==States.NOURRIR) {
+    		double choixetat = new Random().nextFloat();
+    		if(choixetat>=0.5) {
+    			Terrain.addDessinable(this);
+    			etat=States.SUIVRE_PHEROMONES;
+    		}
+    	}
+    		
     	
-    	move();
+    	if(etat==States.SUIVRE_PHEROMONES)
+    		move();
     	
     	if(RefAdulte.getDureevie()+1==RefAdulte.getDureevieMax()) {
     		Terrain.removeDessinable(this);
+    		if(etat==States.SUIVRE_PHEROMONES){
+    			getAdulte().getmaFourmi().getLaFourmiliere().removeFourmi(getAdulte().getmaFourmi());
+    		}
+    		else {
+    			getAdulte().getmaFourmi().isDead();
+    		}
     	}
     }
 
@@ -109,6 +125,12 @@ public class Ouvriere extends Role implements Movable, Trace{
 	
 	public void nonnourris() {
 		Terrain.removeDessinable(this);
+		if(etat==States.SUIVRE_PHEROMONES){
+			getAdulte().getmaFourmi().getLaFourmiliere().removeFourmi(getAdulte().getmaFourmi());
+		}
+		else {
+			getAdulte().getmaFourmi().isDead();
+		}
 	}
 	  
 	

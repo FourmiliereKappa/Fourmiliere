@@ -21,7 +21,7 @@ public class Fourmiliere implements Dessinable,Trace{
 	private int y;
 	private IMovableDrawable skin;
 	Depot monDepot;
-	double stocknourriture = 1000000;
+	double stocknourriture = 10000;
 
 
 	public Fourmiliere(Terrain monTerrain) {

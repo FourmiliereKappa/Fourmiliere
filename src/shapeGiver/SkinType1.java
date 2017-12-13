@@ -41,8 +41,9 @@ public class SkinType1 implements Dessineur{
     return new Oval(Color.BLACK, new Point(0, 0), new Dimension(bounds, bounds));
   }
 
+  @Override
   public IMovableDrawable dessine(Depot depot) {
 	return new RectangleDrawable(Color.RED, new Point(0, 0), new Dimension(10, 10));
   }
-
+  
 }

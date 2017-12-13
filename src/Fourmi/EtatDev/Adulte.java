@@ -32,7 +32,6 @@ public class Adulte extends EtatDev implements Trace{
   }
   
   public void cycle(){
-	  
 	  if(dureevie==dureeviemax) {
 		  getmaFourmi().isDead();
 	  }
@@ -46,7 +45,6 @@ public class Adulte extends EtatDev implements Trace{
 			  compteuravantmanger=288;
 		  }
 		  else {
-			  getmaFourmi().isDead();
 			  getRole().nonnourris();
 		  }
 	  }

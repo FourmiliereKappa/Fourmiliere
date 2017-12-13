@@ -24,19 +24,21 @@ public class Larve extends EtatDev implements Trace {
 		  Nymphe manymphe = new Nymphe(getrefFourmis());
 		  getrefFourmis().setetatDev(manymphe);
 	  } else {
-			  vie ++;
+		  vie ++;
 	  } 
 	  
 	  compteuravantmanger--;
 	  
-	  boolean resultsinourris = getrefFourmis().getLaFourmiliere().nourrir(getrefFourmis().getPoidFourmis());
-	  if(resultsinourris==true) {
-		  compteuravantmanger=288;
+	  if (compteuravantmanger==0) {
+		  
+		  boolean resultsinourris = getrefFourmis().getLaFourmiliere().nourrir(getrefFourmis().getPoidFourmis());
+		  if(resultsinourris==true) {
+			  compteuravantmanger=288;
+		  }
+		  else {
+			  getrefFourmis().isDead();
+		  }
 	  }
-	  else {
-		  getrefFourmis().isDead();
-	  }
-	  
 	  
   }
   

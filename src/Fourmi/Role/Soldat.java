@@ -25,7 +25,14 @@ public class Soldat extends Role implements Trace{
 	  }
 	  
 	  public void cycle() {
-		  
+		  if(refAdulte.getDureevie()+1==refAdulte.getDureevieMax()) {
+			  getAdulte().getmaFourmi().isDead();
+		  }
 	  }
+	  
+	  public void nonnourris() {
+			getAdulte().getmaFourmi().isDead();
+	  }
+		  
 	  
 }
