@@ -12,6 +12,7 @@ public class Puce extends Ennemi {
     super(x, y);
     poids = 1.;
 
+
     Dessineur dessineur = new SkinType1();
     skin = dessineur.dessine(this);
 

@@ -13,6 +13,7 @@ public class EnnemiSpawner implements Cyclable{
   List<Ennemi> ennemis = new CopyOnWriteArrayList<Ennemi>();
 
 
+
   public EnnemiSpawner(int x, int y){
     this.x = x;
     this.y = y;

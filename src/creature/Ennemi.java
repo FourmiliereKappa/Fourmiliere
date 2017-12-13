@@ -15,6 +15,7 @@ public abstract class Ennemi implements Cyclable, Movable {
   protected int y;
   protected IMovableDrawable skin;
 
+
   public Ennemi(int x, int y){
     setZone(x, y);
   }
