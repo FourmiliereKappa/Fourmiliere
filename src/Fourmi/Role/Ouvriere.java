@@ -25,6 +25,7 @@ public class Ouvriere extends Role implements Movable, Trace{
 		SUIVRE_PHEROMONES,
 		NOURRIR,
 		COMBATTRE,
+		NETTOYER,
 		RETOUR
     }
 	
@@ -56,11 +57,17 @@ public class Ouvriere extends Role implements Movable, Trace{
 
     public void cycle(){
     	
-    	if(etat==States.NOURRIR) {
+    	if(etat==States.NOURRIR || etat  == States.NETTOYER) {
     		double choixetat = new Random().nextFloat();
     		if(choixetat>=0.5) {
     			Terrain.addDessinable(this);
     			etat=States.SUIVRE_PHEROMONES;
+    		}
+    		if(choixetat<0.25) {
+    			etat=States.NETTOYER;
+    		}
+    		else {
+    			etat=States.NOURRIR;
     		}
     	}
     		
