@@ -42,6 +42,10 @@ public class Reine extends Role implements Trace{
 	  
 	  if(refAdulte.getDureevie()%50==0)
 		  pondreoeuf();
+	  
+	  if(refAdulte.getDureevie() == refAdulte.getDureevieMax()) {
+		  refAdulte.getmaFourmi().isDead();
+	  }
 
   }
   
@@ -57,6 +61,11 @@ public class Reine extends Role implements Trace{
   @Override
   public void trace(Report r) {
   	r.traceForFourmiliere(this);
+  }
+  
+  
+  public void nonnourris() {
+	  refAdulte.getmaFourmi().isDead();
   }
 
 }
