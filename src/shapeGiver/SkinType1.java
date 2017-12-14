@@ -12,7 +12,7 @@ import Fourmiliere.Fourmiliere;
 import creature.Ennemi;
 import Fourmi.Role.Ouvriere;
 
-public class SkinType1 implements Dessineur{
+public class SkinType1 implements Dessineur{ // tout les types de skin affectable
 
   public SkinType1(){
 

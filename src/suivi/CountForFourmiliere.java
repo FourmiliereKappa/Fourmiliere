@@ -16,7 +16,7 @@ import creature.Puce;
 import creature.Scarabe;
 import monde.Terrain;
 
-public class CountForFourmiliere implements Report {
+public class CountForFourmiliere implements Report { // tout les compteurs pour les fourmis
 	private Integer nombresFourmis;
 	private Integer nombresOeufs;
 	private Integer nombresLarves;

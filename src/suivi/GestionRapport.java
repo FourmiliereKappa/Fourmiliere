@@ -9,13 +9,13 @@ public class GestionRapport {
 	}
 
 	public void trace() {
-		Report report = new CountForFourmiliere();
-		rapport.getTerrain().trace(report);
+		Report report = new CountForFourmiliere(); // création du compteur
+		rapport.getTerrain().trace(report); // lancement du comptage à partir du terrain
 		System.out.println(report);
 
 	}
 	
-	public String toString() {
+	public String toString() { // redéfinition pour affichage
 		Report report = new CountForFourmiliere();
 		rapport.getTerrain().trace(report);
 		return report.toString();

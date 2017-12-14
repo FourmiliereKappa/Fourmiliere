@@ -1,31 +1,25 @@
 package monde;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import Fourmi.Role.Ouvriere;
 import Fourmiliere.Fourmiliere;
 import creature.Ennemi;
-import drawing.IMovableDrawable;
 import shapeGiver.Dessinable;
-import shapeGiver.Dessineur;
-import shapeGiver.SkinType1;
 
 
 public class Zone {
 
-	int Pheromone = 0;
-	int x,y;
-	private List<Dessinable> dessinables;
-	private List<Ennemi> ennemis;
-	Fourmiliere maFourmilliere=null;
+	int Pheromone = 0; // nombre de phéromones
+	int x,y; // coordonnée de la zone
+	private List<Dessinable> dessinables; // liste des dessinables présents dans la fourmilliere
+	private List<Ennemi> ennemis; // on differencie avec les ennemies
+	Fourmiliere maFourmilliere; // possibilitée d'avoir une fourmilliere dans la case 
 
 
 	public Zone(int x,int y) {
 
-		dessinables = new CopyOnWriteArrayList<Dessinable>();
+		dessinables = new CopyOnWriteArrayList<Dessinable>(); // modification dynamique possible -> gestion concurence
 		ennemis = new CopyOnWriteArrayList<Ennemi>();
 		this.x=x;
 		this.y=y;
@@ -64,7 +58,7 @@ public class Zone {
 	 ennemis.remove(insecte);
 	}
 
-	public void setmaFourmilliere(Fourmiliere maFourmilliere) {
+	public void setmaFourmilliere(Fourmiliere maFourmilliere) { // méthode ajout fourmilliere dans zone
 
 		System.out.println("Fourmiliere ajoutée aux cooordonnées :" + this.x + "," + this.y);
 		this.maFourmilliere=maFourmilliere;
@@ -80,12 +74,15 @@ public class Zone {
 		System.out.println(Pheromone);
 		Pheromone -= 1;
 	}
-
-	public List<IMovableDrawable> listDraw(){
+	
+	// en prévision d'évolution 
+	/**
+	 * 
+	 * public List<IMovableDrawable> listDraw(){
 	  List<IMovableDrawable> r = new ArrayList<IMovableDrawable>();
 	  Dessineur dessineur = new SkinType1();
 
-	  if(!ennemis.isEmpty()){
+	   if(!ennemis.isEmpty()){
 	    r.add(dessineur.dessine(ennemis.get(0)));
 
 	    if(!dessinables.isEmpty()){
@@ -99,5 +96,5 @@ public class Zone {
 	  return r;
 	}
 
-
+   **/
 }

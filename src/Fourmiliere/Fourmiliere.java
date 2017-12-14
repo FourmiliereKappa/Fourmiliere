@@ -16,49 +16,59 @@ import suivi.Trace;
 
 public class Fourmiliere implements Dessinable,Trace{
 
-	List<Fourmi> MesFourmis;
-	private int x;
+	List<Fourmi> MesFourmis; // liste des fourmis de la fourmilliere
+	private int x; // coordonnées fourmillieres
 	private int y;
-	private IMovableDrawable skin;
-	Depot monDepot;
-	double stocknourriture = 10000;
+	private IMovableDrawable skin; // skin de la fourmilliere
+	Depot monDepot; // depot de la fourmilliere
+	double stocknourriture = 10000; // stock de nourriture présent dans la fourmilliere
 
 
 	public Fourmiliere(Terrain monTerrain) {
 
-		MesFourmis = new CopyOnWriteArrayList<Fourmi>();
+		MesFourmis = new CopyOnWriteArrayList<Fourmi>(); // on utilise un copyonwritearraylist 
+		//afin d'eviter les problemes de concurrences
 
+		// ajout du dessinable au terrain après avoir pris son skin
+		
 		Dessineur dessineur = new SkinType1();
 	    skin = accept(dessineur);
 	    Terrain.addDessinable(this);
 
+	    // génération aléatoire des coordonnées de la fourmilliere
 		x=(int) (Math.random() * 0x75);
 		y=(int) (Math.random() * 0x75);
 
-		monTerrain.creationFourmiliere(this);
-		monTerrain.add(new EnnemiSpawner(x, y));
 		
+		monTerrain.creationFourmiliere(this); // affectation de la fourmilliere au terrain
+		
+		monTerrain.add(new EnnemiSpawner(x, y));//ajout du spawner d'ennemi aux même coordonnées que la fourmilliere
+		// afin d'eviter lesp roblemes de spawn
+		
+		// creation du depot
 		monDepot=new Depot(x+10, y+10);
 	}
 
-
+		
 	public void nouvelleFourmi() {
-
+		//création d'une nouvelle fourmis
 		Fourmi maFourmis = new Fourmi(this);
 		putFourmi(maFourmis);
 
 	}
 
 
+	// ajout à la liste des fourmis de la fourmilliere
 	public void putFourmi(Fourmi manouvelleFourmi) {
 		MesFourmis.add(manouvelleFourmi);
 	}
 
-
+	// remove fourmis de la fourmilliere
 	public void removeFourmi(Fourmi maFourmieffacer) {
 		MesFourmis.remove(maFourmieffacer);
 	}
 
+	// lancement du cycle de la fourmilliere
 	public void appliqueFourmi() {
 
 		for(Fourmi f: MesFourmis) {
@@ -97,7 +107,7 @@ public class Fourmiliere implements Dessinable,Trace{
 	  }
 
 	@Override
-	public void trace(Report r) {
+	public void trace(Report r) { // lancement des cycles pour chaque fourmis et incrementation du nombre des fourmillieres
 		r.traceForFourmiliere(this);
 		for (Fourmi fourmi : MesFourmis) {
 			fourmi.trace(r);
@@ -114,7 +124,7 @@ public class Fourmiliere implements Dessinable,Trace{
 		return stocknourriture;
 	}
 	
-	public boolean nourrir(double d) {
+	public boolean nourrir(double d) { // méthode pour savoir si on peut nourrir une fourmis ou non
 		
 		if(stocknourriture-d>0) {
 			stocknourriture-=d;	

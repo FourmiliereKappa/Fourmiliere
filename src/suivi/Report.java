@@ -16,7 +16,7 @@ import creature.Puce;
 import creature.Scarabe;
 import monde.Terrain;
 
-public interface Report {
+public interface Report { // tout les report possibles pour incrementation du nombre de chaques objets
 	
 	void traceForFourmiliere(Soldat soldat);
 	

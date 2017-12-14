@@ -20,7 +20,7 @@ public abstract class Ennemi implements Movable, Trace {
 	}
 
 	@Override
-	public IMovableDrawable accept(Dessineur dessineur) {
+	public IMovableDrawable accept(Dessineur dessineur) { // l'ennemi est dessiner
 		return dessineur.dessine(this);
 	}
 

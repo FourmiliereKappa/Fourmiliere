@@ -1,8 +1,6 @@
 package creature;
 
-import drawing.IMovableDrawable;
 import monde.Terrain;
-import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.SkinType1;
 import suivi.Report;
@@ -12,24 +10,24 @@ public class Scarabe extends Ennemi implements Trace {
 
   public Scarabe(int x, int y){
     super(x, y);
-    poids = 100.;
+    poids = 100.; // définition du poids
 
 
     Dessineur dessineur = new SkinType1();
-    skin = dessineur.dessine(this);
+    skin = dessineur.dessine(this); // ajout du skin scarabee
 
-    Terrain.addDessinable(this);
+    Terrain.addDessinable(this); // ajout du dessinable au terrain
   }
 
   public void cycle(){
-    move();
+    move(); // à chaque cycle le scarabée bouge
   }
 
 
 
   @Override
   public void trace(Report r) {
-  	r.traceForFourmiliere(this);
+  	r.traceForFourmiliere(this); // fonction trace sur le scarabée -> incrementation du nombre de scarabées
   }
 
 

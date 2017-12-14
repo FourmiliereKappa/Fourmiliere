@@ -20,14 +20,14 @@ public class Fourmi implements Trace{
 	  
 	  
 	  lafourmilliere=maFourmilliere;
-	  etatDev = new Oeuf(this);  
+	  etatDev = new Oeuf(this);  // La nouvelle fourmis devient un oeuf au debut de son cycle
 	  poids = (float) (new Random().nextFloat()*0.5+1.5); // calcul poid fourmis
 	  
   }
 
   	
   public void cycle(){
-    getetatDev().cycle();
+    getetatDev().cycle(); //lancement du cycle
   }
   
   public EtatDev getetatDev() {
@@ -45,7 +45,7 @@ public class Fourmi implements Trace{
 
   @Override
   public void trace(Report r) {
-	r.traceForFourmiliere(this);	
+	r.traceForFourmiliere(this);	// incrementation du compteur des fourmis
   }
   
   public double getPoidFourmis() {
@@ -53,6 +53,8 @@ public class Fourmi implements Trace{
   }
   
   public void isDead() {
+	  // si la fourmis est morte dans la fourmilliere on l'efface de la fourmilliere et 
+	  //on crée un nouveau cadavre qu'on ajoute au depot
 	  getLaFourmiliere().removeFourmi(this);
 	  getLaFourmiliere().getDepot().ajoutCadavre(new Cadavre());
   }

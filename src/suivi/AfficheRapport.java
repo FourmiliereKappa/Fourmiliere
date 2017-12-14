@@ -5,9 +5,8 @@ import monde.Terrain;
 
 public class AfficheRapport {
 	
-	World leMonde;
-	Terrain leTerrain;
-	GestionRapport rapportGestion;
+	Terrain leTerrain; // le terrain qu'on regarde pour le rapport
+	GestionRapport rapportGestion; // le rapprot de gestion
 	
 	
 	public AfficheRapport(World monworld){

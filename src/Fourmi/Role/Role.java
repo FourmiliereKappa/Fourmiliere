@@ -2,7 +2,7 @@ package Fourmi.Role;
 
 import suivi.Report;
 
-public abstract class Role {
+public abstract class Role { //classe abstraite de reine,ouvriere,soldat
 	
   public void cycle(){
 
