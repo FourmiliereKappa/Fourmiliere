@@ -32,8 +32,8 @@ public class Fourmiliere implements Dessinable,Trace{
 	    skin = accept(dessineur);
 	    Terrain.addDessinable(this);
 
-		x=(int) (Math.random() * 0x50);
-		y=(int) (Math.random() * 0x50);
+		x=(int) (Math.random() * 0x75);
+		y=(int) (Math.random() * 0x75);
 
 		monTerrain.creationFourmiliere(this);
 		monTerrain.add(new EnnemiSpawner(x, y));

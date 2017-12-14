@@ -1,8 +1,6 @@
 package creature;
 
-import drawing.IMovableDrawable;
 import monde.Terrain;
-import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.SkinType1;
 import suivi.Report;

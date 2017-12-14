@@ -8,5 +8,6 @@ public class test {
 		
 		Terrain leterrain = new Terrain();
 		leterrain.creaReine();
+		leterrain.creaReine();
 	}
 }

@@ -3,14 +3,12 @@ package creature;
 import drawing.IMovableDrawable;
 import monde.Direction;
 import monde.Terrain;
-import monde.Zone;
 import shapeGiver.Dessineur;
 import shapeGiver.Movable;
-import shapeGiver.SkinType1;
 import suivi.Report;
 import suivi.Trace;
 
-public abstract class Ennemi implements Cyclable, Movable, Trace {
+public abstract class Ennemi implements Movable, Trace {
 
 	protected double poids;
 	protected int x;
@@ -27,16 +25,15 @@ public abstract class Ennemi implements Cyclable, Movable, Trace {
 	}
 
 	@Override
-	public IMovableDrawable getSkin() {
+	public IMovableDrawable getSkin() { // recupération de la forme sur la map de l'ennemie
 		return skin;
 	}
 
-	@Override
-	public void cycle() {
+	public void cycle() { // En un cycle l'ennemie fait...
 
 	}
 
-	public void setZone(int x, int y) {
+	public void setZone(int x, int y) { // définition d'une zone pour l'ennemi
 		this.x = x;
 		this.y = y;
 	}
@@ -55,7 +52,7 @@ public abstract class Ennemi implements Cyclable, Movable, Trace {
 		return poids;
 	}
 
-	public void move() {
+	public void move() { // mouvement de l'ennemie
 
 		int direction = (int) (Math.random() * 0x4);
 
@@ -77,7 +74,7 @@ public abstract class Ennemi implements Cyclable, Movable, Trace {
 	}
 
 	@Override
-	public void trace(Report r) {
+	public void trace(Report r) { // La fonction trace va incrémenter le compteur d'ennemis.
 		r.traceForFourmiliere(this);
 
 	}
