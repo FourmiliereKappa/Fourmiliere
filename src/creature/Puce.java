@@ -9,6 +9,7 @@ import suivi.Trace;
 public class Puce extends Ennemi implements Trace {
 
   public Puce(int x, int y){
+	  
     super(x, y);
     poids = 1.;
 
