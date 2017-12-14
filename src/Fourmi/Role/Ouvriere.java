@@ -63,7 +63,7 @@ public class Ouvriere extends Role implements Movable, Trace{
     			Terrain.addDessinable(this);
     			etat=States.SUIVRE_PHEROMONES;
     		}
-    		if(choixetat<0.25) {
+    		else if(choixetat<0.25) {
     			etat=States.NETTOYER;
     		}
     		else {
